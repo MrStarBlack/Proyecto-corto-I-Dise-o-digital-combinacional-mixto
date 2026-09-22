@@ -215,3 +215,12 @@ BITACORA JORGE CHAVARRIA MATA
 
 
 DEREK ROJAS CAMACHO
+<img width="1190" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 03 AM" src="https://github.com/user-attachments/assets/4ca8141f-8568-41aa-9517-905fcc9293da" />
+<img width="1152" height="1600" alt="WhatsApp Image 2026-09-22 at 6 53 59 AM" src="https://github.com/user-attachments/assets/076cc1eb-6654-40e1-b372-6052d692c42b" />
+<img width="1224" height="1600" alt="WhatsApp Image 2026-09-22 at 6 540  AM" src="https://github.com/user-attachments/assets/d93b9725-1930-49bb-9059-d6f3a7725c8f" />
+<img width="1264" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 06AM" src="https://github.com/user-attachments/assets/30e24d61-16e2-475c-aec4-c8e57773fe75" />
+<img width="1234" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 04 AM" src="https://github.com/user-attachments/assets/cbe225b9-213f-46e6-9a86-05ebd4944921" />
+<img width="1196" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 07 AM" src="https://github.com/user-attachments/assets/3ed32041-24c0-4807-ae0f-f6b54007df6b" />
+<img width="1226" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 08 AM" src="https://github.com/user-attachments/assets/2cfa42f4-3e4b-475f-ba53-9eaa21412bce" />
+<img width="1272" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 05 AM" src="https://github.com/user-attachments/assets/6a646646-2bc1-409e-a752-89b57fd34159" />
+<img width="1228" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 09 AM" src="https://github.com/user-attachments/assets/7be3f319-5ebe-4e05-9c36-10ae1cbce338" />
