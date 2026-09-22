@@ -69,14 +69,80 @@ Caso de inversor con capacitor: Este caso no se pudo lograr ya que el circuito d
 
 ### 3.2 Módulo 1
 #### 1. Encabezado del módulo
-```SystemVerilog
-module mi_modulo(
-    input logic     entrada_i,      
-    output logic    salida_i 
-    );
-```
+##### Encabezado del modulo Lectura_Palabra:
+
+module Lectura_Palabra (
+    input  [3:0] datos_i, // 4 bits de entrada: [3]=D3, [2]=D2, [1]=D1, [0]=D0
+    output [6:0] seg_o    // 7 segmentos: [0]=A, [1]=B, [2]=C, [3]=D, [4]=E, [5]=F, [6]=G
+);
+
+
+##### Encabezado del módulo Inyeccion_Error_Hamming:
+module Inyeccion_Error_Hamming (
+
+    input wire clk_i,   // reloj del Tang Nano 9K (ej. 27 MHz)
+
+    input wire [3:0] datos_i,
+
+    input wire I1_i,
+    input wire I2_i,
+    input wire I3_i,
+
+    input wire [2:0] err1_pos_i,
+    input wire [2:0] err2_pos_i,
+
+    input wire error_P_i,
+
+    output wire D0_o,
+    output wire D1_o,
+    output wire D2_o,
+    output wire D3_o,
+
+    output wire I1_o,
+    output wire I2_o,
+    output wire I3_o,
+
+    output wire P_o
+);
+
+##### Encabezado del módulo parity_decoder:
+module parity_decoder (
+    input wire [7:0] palabra_recibida,
+
+    output wire paridad_ok,
+    output wire error_paridad
+);
+
+
+##### Encabezado del módulo syndrome_decoder:
+module syndrome_decoder (
+    input wire [6:0] hamming_recibido,
+
+    output wire [2:0] syndrome
+);
+
+
+##### Encabezado del módulo error_correction:
+module syndrome_decoder (
+    input wire [6:0] hamming_recibido,
+
+    output wire [2:0] syndrome
+);
+##### Encabezado del módulo display_decoder:
+module display_decoder (
+    input wire [6:0] palabra_corregida,
+    input wire [2:0] syndrome,
+    input wire ded,
+    input wire switch_display,
+
+    output wire [6:0] leds,
+    output reg [6:0] segmentos
+);
+
+
 #### 2. Parámetros
 
+El módulo no utiliza parámetros configurables, es decir, las dimensiones de las señales y la lógica del procesamiento están definidas en el código SystemVerilog de acuerdo con el sistema Hamming implementado.
 
 #### 3. Entradas y salidas:
 - `entrada_i`: La entrada es proporcionada por el usuario correspondiente a los cuatro bits de la palaba para el primer subsistema. Para el segundo subsistema se recibe de entrada la palabra de 8 bits la cual se le inyecta el error. Para el receptor, el primer subsistema recibe la palabra de 8 bits codificada con el error o sin el, luego recibe los 7 bits de hamming sin el bit de paridad global, el siguiente recibe los 7 bits con la corrección y finalmente el ultimo subsistema recibe la palabra de 4 bits para mostrarla en el display.
