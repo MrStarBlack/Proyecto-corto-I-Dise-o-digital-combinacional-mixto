@@ -1,0 +1,175 @@
+#! 
+:ivl_version "13.0 (devel)" "(s20221226-103-g418bbc14b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "c:\Users\der3k\DOWNLO~1\OSS-CA~1\lib\ivl\system.vpi";
+:vpi_module "c:\Users\der3k\DOWNLO~1\OSS-CA~1\lib\ivl\vhdl_sys.vpi";
+:vpi_module "c:\Users\der3k\DOWNLO~1\OSS-CA~1\lib\ivl\vhdl_textio.vpi";
+:vpi_module "c:\Users\der3k\DOWNLO~1\OSS-CA~1\lib\ivl\v2005_math.vpi";
+:vpi_module "c:\Users\der3k\DOWNLO~1\OSS-CA~1\lib\ivl\va_math.vpi";
+:vpi_module "c:\Users\der3k\DOWNLO~1\OSS-CA~1\lib\ivl\v2009.vpi";
+S_0000000004c71a50 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0000000004c6e3e0 .scope module, "tb_syndrome_decoder" "tb_syndrome_decoder" 3 3;
+ .timescale -9 -12;
+v0000000004c68c10_0 .var "hamming_recibido", 6 0;
+v0000000004c69c50_0 .net "syndrome", 2 0, L_0000000004c682b0;  1 drivers
+S_0000000004c71370 .scope module, "dut" "syndrome_decoder" 3 9, 4 1 0, S_0000000004c6e3e0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 7 "hamming_recibido";
+    .port_info 1 /OUTPUT 3 "syndrome";
+L_0000000004c78df0 .functor XOR 1, L_0000000004c68a30, L_0000000004c69610, C4<0>, C4<0>;
+L_0000000004c78ae0 .functor XOR 1, L_0000000004c78df0, L_0000000004c69f70, C4<0>, C4<0>;
+L_0000000004cd0fa0 .functor XOR 1, L_0000000004c78ae0, L_0000000004c68170, C4<0>, C4<0>;
+L_0000000004cd0360 .functor XOR 1, L_0000000004c69d90, L_0000000004c69ed0, C4<0>, C4<0>;
+L_0000000004cd0b40 .functor XOR 1, L_0000000004cd0360, L_0000000004c68670, C4<0>, C4<0>;
+L_0000000004cd0980 .functor XOR 1, L_0000000004cd0b40, L_0000000004c694d0, C4<0>, C4<0>;
+L_0000000004cd0670 .functor XOR 1, L_0000000004c6a010, L_0000000004c68d50, C4<0>, C4<0>;
+L_0000000004cd0210 .functor XOR 1, L_0000000004cd0670, L_0000000004c68210, C4<0>, C4<0>;
+L_0000000004cd0280 .functor XOR 1, L_0000000004cd0210, L_0000000004c69070, C4<0>, C4<0>;
+L_0000000004cd02f0 .functor BUFZ 1, L_0000000004cd0280, C4<0>, C4<0>, C4<0>;
+L_0000000004cd0d70 .functor BUFZ 1, L_0000000004cd0980, C4<0>, C4<0>, C4<0>;
+L_0000000004cd03d0 .functor BUFZ 1, L_0000000004cd0fa0, C4<0>, C4<0>, C4<0>;
+v0000000004c68cb0_0 .net *"_ivl_1", 0 0, L_0000000004c68a30;  1 drivers
+v0000000004c69110_0 .net *"_ivl_11", 0 0, L_0000000004c68170;  1 drivers
+v0000000004c68990_0 .net *"_ivl_15", 0 0, L_0000000004c69d90;  1 drivers
+v0000000004c69a70_0 .net *"_ivl_17", 0 0, L_0000000004c69ed0;  1 drivers
+v0000000004c69750_0 .net *"_ivl_18", 0 0, L_0000000004cd0360;  1 drivers
+v0000000004c69cf0_0 .net *"_ivl_21", 0 0, L_0000000004c68670;  1 drivers
+v0000000004c69b10_0 .net *"_ivl_22", 0 0, L_0000000004cd0b40;  1 drivers
+v0000000004c697f0_0 .net *"_ivl_25", 0 0, L_0000000004c694d0;  1 drivers
+v0000000004c68fd0_0 .net *"_ivl_29", 0 0, L_0000000004c6a010;  1 drivers
+v0000000004c691b0_0 .net *"_ivl_3", 0 0, L_0000000004c69610;  1 drivers
+v0000000004c69bb0_0 .net *"_ivl_31", 0 0, L_0000000004c68d50;  1 drivers
+v0000000004c69890_0 .net *"_ivl_32", 0 0, L_0000000004cd0670;  1 drivers
+v0000000004c69430_0 .net *"_ivl_35", 0 0, L_0000000004c68210;  1 drivers
+v0000000004c68ad0_0 .net *"_ivl_36", 0 0, L_0000000004cd0210;  1 drivers
+v0000000004c69250_0 .net *"_ivl_39", 0 0, L_0000000004c69070;  1 drivers
+v0000000004c68530_0 .net *"_ivl_4", 0 0, L_0000000004c78df0;  1 drivers
+v0000000004c68df0_0 .net *"_ivl_45", 0 0, L_0000000004cd02f0;  1 drivers
+v0000000004c69e30_0 .net *"_ivl_49", 0 0, L_0000000004cd0d70;  1 drivers
+v0000000004c69930_0 .net *"_ivl_54", 0 0, L_0000000004cd03d0;  1 drivers
+v0000000004c68350_0 .net *"_ivl_7", 0 0, L_0000000004c69f70;  1 drivers
+v0000000004c68f30_0 .net *"_ivl_8", 0 0, L_0000000004c78ae0;  1 drivers
+v0000000004c69390_0 .net "hamming_recibido", 6 0, v0000000004c68c10_0;  1 drivers
+v0000000004c699d0_0 .net "s1", 0 0, L_0000000004cd0fa0;  1 drivers
+v0000000004c685d0_0 .net "s2", 0 0, L_0000000004cd0980;  1 drivers
+v0000000004c68e90_0 .net "s4", 0 0, L_0000000004cd0280;  1 drivers
+v0000000004c692f0_0 .net "syndrome", 2 0, L_0000000004c682b0;  alias, 1 drivers
+L_0000000004c68a30 .part v0000000004c68c10_0, 0, 1;
+L_0000000004c69610 .part v0000000004c68c10_0, 2, 1;
+L_0000000004c69f70 .part v0000000004c68c10_0, 4, 1;
+L_0000000004c68170 .part v0000000004c68c10_0, 6, 1;
+L_0000000004c69d90 .part v0000000004c68c10_0, 1, 1;
+L_0000000004c69ed0 .part v0000000004c68c10_0, 2, 1;
+L_0000000004c68670 .part v0000000004c68c10_0, 5, 1;
+L_0000000004c694d0 .part v0000000004c68c10_0, 6, 1;
+L_0000000004c6a010 .part v0000000004c68c10_0, 3, 1;
+L_0000000004c68d50 .part v0000000004c68c10_0, 4, 1;
+L_0000000004c68210 .part v0000000004c68c10_0, 5, 1;
+L_0000000004c69070 .part v0000000004c68c10_0, 6, 1;
+L_0000000004c682b0 .concat8 [ 1 1 1 0], L_0000000004cd03d0, L_0000000004cd0d70, L_0000000004cd02f0;
+    .scope S_0000000004c6e3e0;
+T_0 ;
+    %vpi_call/w 3 16 "$dumpfile", "syndrome_decoder.vcd" {0 0 0};
+    %vpi_call/w 3 17 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000000004c6e3e0 {0 0 0};
+    %vpi_call/w 3 19 "$display", "==========================================" {0 0 0};
+    %vpi_call/w 3 20 "$display", "TESTBENCH - DECODIFICADOR DE SINDROME" {0 0 0};
+    %pushi/vec4 0, 0, 7;
+    %store/vec4 v0000000004c68c10_0, 0, 7;
+    %delay 10000, 0;
+    %load/vec4 v0000000004c69c50_0;
+    %cmpi/e 0, 0, 3;
+    %jmp/0xz  T_0.0, 4;
+    %vpi_call/w 3 30 "$display", "OK: 0000000 -> Sindrome 000" {0 0 0};
+    %jmp T_0.1;
+T_0.0 ;
+    %vpi_call/w 3 32 "$display", "ERROR: 0000000" {0 0 0};
+T_0.1 ;
+    %pushi/vec4 1, 0, 7;
+    %store/vec4 v0000000004c68c10_0, 0, 7;
+    %delay 10000, 0;
+    %load/vec4 v0000000004c69c50_0;
+    %cmpi/e 1, 0, 3;
+    %jmp/0xz  T_0.2, 4;
+    %vpi_call/w 3 43 "$display", "OK: 0000001 -> Sindrome 001" {0 0 0};
+    %jmp T_0.3;
+T_0.2 ;
+    %vpi_call/w 3 45 "$display", "ERROR: 0000001" {0 0 0};
+T_0.3 ;
+    %pushi/vec4 2, 0, 7;
+    %store/vec4 v0000000004c68c10_0, 0, 7;
+    %delay 10000, 0;
+    %load/vec4 v0000000004c69c50_0;
+    %cmpi/e 2, 0, 3;
+    %jmp/0xz  T_0.4, 4;
+    %vpi_call/w 3 56 "$display", "OK: 0000010 -> Sindrome 010" {0 0 0};
+    %jmp T_0.5;
+T_0.4 ;
+    %vpi_call/w 3 58 "$display", "ERROR: 0000010" {0 0 0};
+T_0.5 ;
+    %pushi/vec4 4, 0, 7;
+    %store/vec4 v0000000004c68c10_0, 0, 7;
+    %delay 10000, 0;
+    %load/vec4 v0000000004c69c50_0;
+    %cmpi/e 3, 0, 3;
+    %jmp/0xz  T_0.6, 4;
+    %vpi_call/w 3 69 "$display", "OK: 0000100 -> Sindrome 011" {0 0 0};
+    %jmp T_0.7;
+T_0.6 ;
+    %vpi_call/w 3 71 "$display", "ERROR: 0000100" {0 0 0};
+T_0.7 ;
+    %pushi/vec4 8, 0, 7;
+    %store/vec4 v0000000004c68c10_0, 0, 7;
+    %delay 10000, 0;
+    %load/vec4 v0000000004c69c50_0;
+    %cmpi/e 4, 0, 3;
+    %jmp/0xz  T_0.8, 4;
+    %vpi_call/w 3 82 "$display", "OK: 0001000 -> Sindrome 100" {0 0 0};
+    %jmp T_0.9;
+T_0.8 ;
+    %vpi_call/w 3 84 "$display", "ERROR: 0001000" {0 0 0};
+T_0.9 ;
+    %pushi/vec4 16, 0, 7;
+    %store/vec4 v0000000004c68c10_0, 0, 7;
+    %delay 10000, 0;
+    %load/vec4 v0000000004c69c50_0;
+    %cmpi/e 5, 0, 3;
+    %jmp/0xz  T_0.10, 4;
+    %vpi_call/w 3 95 "$display", "OK: 0010000 -> Sindrome 101" {0 0 0};
+    %jmp T_0.11;
+T_0.10 ;
+    %vpi_call/w 3 97 "$display", "ERROR: 0010000" {0 0 0};
+T_0.11 ;
+    %pushi/vec4 32, 0, 7;
+    %store/vec4 v0000000004c68c10_0, 0, 7;
+    %delay 10000, 0;
+    %load/vec4 v0000000004c69c50_0;
+    %cmpi/e 6, 0, 3;
+    %jmp/0xz  T_0.12, 4;
+    %vpi_call/w 3 108 "$display", "OK: 0100000 -> Sindrome 110" {0 0 0};
+    %jmp T_0.13;
+T_0.12 ;
+    %vpi_call/w 3 110 "$display", "ERROR: 0100000" {0 0 0};
+T_0.13 ;
+    %pushi/vec4 64, 0, 7;
+    %store/vec4 v0000000004c68c10_0, 0, 7;
+    %delay 10000, 0;
+    %load/vec4 v0000000004c69c50_0;
+    %cmpi/e 7, 0, 3;
+    %jmp/0xz  T_0.14, 4;
+    %vpi_call/w 3 121 "$display", "OK: 1000000 -> Sindrome 111" {0 0 0};
+    %jmp T_0.15;
+T_0.14 ;
+    %vpi_call/w 3 123 "$display", "ERROR: 1000000" {0 0 0};
+T_0.15 ;
+    %vpi_call/w 3 126 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "../sim/tb_syndrome_decoder.sv";
+    "../design/syndrome_decoder.sv";

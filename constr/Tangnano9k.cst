@@ -1,0 +1,129 @@
+// ==========================================
+// CONFIGURACIÓN DE PINES - TANG NANO 9K
+// ==========================================
+
+
+// ==========================================
+// ENTRADAS DE DATOS
+// Switches 0 al 3
+// ==========================================
+
+IO_LOC "datos_i[0]" 56;
+IO_PORT "datos_i[0]" PULL_MODE=DOWN;
+
+IO_LOC "datos_i[1]" 55;
+IO_PORT "datos_i[1]" PULL_MODE=DOWN;
+
+IO_LOC "datos_i[2]" 54;
+IO_PORT "datos_i[2]" PULL_MODE=DOWN;
+
+IO_LOC "datos_i[3]" 53;
+IO_PORT "datos_i[3]" PULL_MODE=DOWN;
+
+
+// ==========================================
+// SALIDA DISPLAY 7 SEGMENTOS
+// ==========================================
+
+IO_LOC "seg_o[0]" 27;
+IO_PORT "seg_o[0]" DRIVE=8;
+
+IO_LOC "seg_o[1]" 26;
+IO_PORT "seg_o[1]" DRIVE=8;
+
+IO_LOC "seg_o[2]" 25;
+IO_PORT "seg_o[2]" DRIVE=8;
+
+IO_LOC "seg_o[3]" 28;
+IO_PORT "seg_o[3]" DRIVE=8;
+
+IO_LOC "seg_o[4]" 29;
+IO_PORT "seg_o[4]" DRIVE=8;
+
+IO_LOC "seg_o[5]" 30;
+IO_PORT "seg_o[5]" DRIVE=8;
+
+IO_LOC "seg_o[6]" 33;
+IO_PORT "seg_o[6]" DRIVE=8;
+
+
+// ==========================================
+// ENTRADAS DE PARIDAD HAMMING
+// ==========================================
+
+// I1
+IO_LOC "I1_i" 40;
+IO_PORT "I1_i" PULL_MODE=DOWN;
+
+// I2
+IO_LOC "I2_i" 35;
+IO_PORT "I2_i" PULL_MODE=DOWN;
+
+// I3
+IO_LOC "I3_i" 41;
+IO_PORT "I3_i" PULL_MODE=DOWN;
+
+
+// ==========================================
+// ENTRADAS DE POSICION ERROR 1
+// ==========================================
+
+IO_LOC "err1_pos_i[0]" 70;
+IO_PORT "err1_pos_i[0]" PULL_MODE=DOWN;
+
+IO_LOC "err1_pos_i[1]" 71;
+IO_PORT "err1_pos_i[1]" PULL_MODE=DOWN;
+
+IO_LOC "err1_pos_i[2]" 72;
+IO_PORT "err1_pos_i[2]" PULL_MODE=DOWN;
+
+
+// ==========================================
+// ENTRADAS DE POSICION ERROR 2
+// ==========================================
+
+IO_LOC "err2_pos_i[0]" 57;
+IO_PORT "err2_pos_i[0]" PULL_MODE=DOWN;
+
+IO_LOC "err2_pos_i[1]" 68;
+IO_PORT "err2_pos_i[1]" PULL_MODE=DOWN;
+
+IO_LOC "err2_pos_i[2]" 69;
+IO_PORT "err2_pos_i[2]" PULL_MODE=DOWN;
+
+
+// ==========================================
+// SALIDAS PALABRA HAMMING
+// ==========================================
+
+// D0
+IO_LOC "D0_o" 51;
+IO_PORT "D0_o" DRIVE=8;
+
+// D1
+IO_LOC "D1_o" 42;
+IO_PORT "D1_o" DRIVE=8;
+
+// D2
+IO_LOC "D2_o" 39;
+IO_PORT "D2_o" DRIVE=8;
+
+// D3
+IO_LOC "D3_o" 36;
+IO_PORT "D3_o" DRIVE=8;
+
+// I1
+IO_LOC "I1_o" 37;
+IO_PORT "I1_o" DRIVE=8;
+
+// I2
+IO_LOC "I2_o" 38;
+IO_PORT "I2_o" DRIVE=8;
+
+// I3
+IO_LOC "I3_o" 63;
+IO_PORT "I3_o" DRIVE=8;
+
+// P global
+IO_LOC "P_o" 77;
+IO_PORT "P_o" DRIVE=8;

@@ -1,0 +1,192 @@
+$date
+	Tue Sep 22 04:02:42 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_error_correction $end
+$var wire 1 ! sec $end
+$var wire 7 " palabra_corregida [6:0] $end
+$var wire 1 # ded $end
+$var reg 1 $ error_paridad $end
+$var reg 7 % hamming_recibido [6:0] $end
+$var reg 3 & syndrome [2:0] $end
+$scope module dut $end
+$var wire 1 ' corregir_1 $end
+$var wire 1 ( corregir_2 $end
+$var wire 1 ) corregir_3 $end
+$var wire 1 * corregir_4 $end
+$var wire 1 + corregir_5 $end
+$var wire 1 , corregir_6 $end
+$var wire 1 - corregir_7 $end
+$var wire 1 # ded $end
+$var wire 1 $ error_paridad $end
+$var wire 7 . hamming_recibido [6:0] $end
+$var wire 1 ! sec $end
+$var wire 3 / syndrome [2:0] $end
+$var wire 1 0 syndrome_activo $end
+$var wire 7 1 palabra_corregida [6:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1010101 1
+00
+b0 /
+b1010101 .
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+b0 &
+b1010101 %
+0$
+0#
+b1010101 "
+0!
+$end
+#10000
+1'
+1!
+10
+b1010101 "
+b1010101 1
+1$
+b1 &
+b1 /
+b1010100 %
+b1010100 .
+#20000
+1!
+1(
+10
+0'
+b1010101 "
+b1010101 1
+b10 &
+b10 /
+b1010111 %
+b1010111 .
+#30000
+0(
+1)
+b1010101 "
+b1010101 1
+b11 &
+b11 /
+b1010001 %
+b1010001 .
+#40000
+1*
+0)
+b1010101 "
+b1010101 1
+b100 &
+b100 /
+b1011101 %
+b1011101 .
+#50000
+0*
+1+
+b1010101 "
+b1010101 1
+b101 &
+b101 /
+b1000101 %
+b1000101 .
+#60000
+0*
+1,
+0+
+b1010101 "
+b1010101 1
+b110 &
+b110 /
+b1110101 %
+b1110101 .
+#70000
+0,
+1-
+b1010101 "
+b1010101 1
+b111 &
+b111 /
+b10101 %
+b10101 .
+#80000
+0-
+1#
+b1010100 "
+b1010100 1
+0!
+0$
+b1 &
+b1 /
+b1010100 %
+b1010100 .
+#90000
+1#
+10
+b1010111 "
+b1010111 1
+b10 &
+b10 /
+b1010111 %
+b1010111 .
+#100000
+b1010001 "
+b1010001 1
+b11 &
+b11 /
+b1010001 %
+b1010001 .
+#110000
+b1011101 "
+b1011101 1
+b100 &
+b100 /
+b1011101 %
+b1011101 .
+#120000
+b1000101 "
+b1000101 1
+b101 &
+b101 /
+b1000101 %
+b1000101 .
+#130000
+b1110101 "
+b1110101 1
+b110 &
+b110 /
+b1110101 %
+b1110101 .
+#140000
+b10101 "
+b10101 1
+b111 &
+b111 /
+b10101 %
+b10101 .
+#150000
+00
+0#
+b1010101 "
+b1010101 1
+0!
+1$
+b0 &
+b0 /
+b1010101 %
+b1010101 .
+#160000

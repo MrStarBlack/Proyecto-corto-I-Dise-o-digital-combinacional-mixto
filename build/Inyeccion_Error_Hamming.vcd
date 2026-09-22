@@ -1,0 +1,294 @@
+$date
+	Tue Sep 22 04:02:07 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_Inyeccion_Error_Hamming $end
+$var wire 8 ! palabra_salida [7:0] $end
+$var wire 1 " P_o $end
+$var wire 1 # I3_o $end
+$var wire 1 $ I2_o $end
+$var wire 1 % I1_o $end
+$var wire 1 & D3_o $end
+$var wire 1 ' D2_o $end
+$var wire 1 ( D1_o $end
+$var wire 1 ) D0_o $end
+$var reg 1 * I1_i $end
+$var reg 1 + I2_i $end
+$var reg 1 , I3_i $end
+$var reg 4 - datos_i [3:0] $end
+$var reg 3 . err1_pos_i [2:0] $end
+$var reg 3 / err2_pos_i [2:0] $end
+$var reg 1 0 error_P_i $end
+$var integer 32 1 pruebas_correctas [31:0] $end
+$var integer 32 2 pruebas_totales [31:0] $end
+$scope module uut $end
+$var wire 1 * I1_i $end
+$var wire 1 + I2_i $end
+$var wire 1 , I3_i $end
+$var wire 4 3 datos_i [3:0] $end
+$var wire 3 4 err1_pos_i [2:0] $end
+$var wire 3 5 err2_pos_i [2:0] $end
+$var wire 1 0 error_P_i $end
+$var wire 8 6 palabra_con_error [7:0] $end
+$var wire 8 7 palabra_base [7:0] $end
+$var wire 8 8 mask_errorP [7:0] $end
+$var wire 1 " P_o $end
+$var wire 1 # I3_o $end
+$var wire 1 $ I2_o $end
+$var wire 1 % I1_o $end
+$var wire 1 & D3_o $end
+$var wire 1 ' D2_o $end
+$var wire 1 ( D1_o $end
+$var wire 1 ) D0_o $end
+$var reg 8 9 mask_error1 [7:0] $end
+$var reg 8 : mask_error2 [7:0] $end
+$upscope $end
+$scope task probar $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 :
+b0 9
+b0 8
+b0 7
+b0 6
+b0 5
+b0 4
+b0 3
+b0 2
+b0 1
+00
+b0 /
+b0 .
+b0 -
+0,
+0+
+0*
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+b0 !
+$end
+#10000
+1"
+1(
+1&
+b10101010 !
+1$
+b10101010 6
+b10101010 7
+1+
+b1010 -
+b1010 3
+b1 1
+b1 2
+#20000
+b10101011 !
+1)
+b10101011 6
+b1 9
+b1 .
+b1 4
+b10 1
+b10 2
+#30000
+0)
+b10101000 !
+0(
+b10101000 6
+b10 9
+b10 .
+b10 4
+b11 1
+b11 2
+#40000
+1(
+b10101110 !
+1'
+b10101110 6
+b100 9
+b11 .
+b11 4
+b100 1
+b100 2
+#50000
+0'
+b10100010 !
+0&
+b10100010 6
+b1000 9
+b100 .
+b100 4
+b101 1
+b101 2
+#60000
+1&
+b10111010 !
+1%
+b10111010 6
+b10000 9
+b101 .
+b101 4
+b110 1
+b110 2
+#70000
+0%
+b10001010 !
+0$
+b10001010 6
+b100000 9
+b110 .
+b110 4
+b111 1
+b111 2
+#80000
+1$
+b11101010 !
+1#
+b11101010 6
+b1000000 9
+b111 .
+b111 4
+b1000 1
+b1000 2
+#90000
+0#
+b101010 !
+0"
+b101010 6
+b10000000 8
+b0 9
+10
+b0 .
+b0 4
+b1001 1
+b1001 2
+#100000
+1)
+0(
+b10101001 !
+1"
+b10101001 6
+b0 8
+b10 :
+b1 9
+00
+b10 /
+b10 5
+b1 .
+b1 4
+b1010 1
+b1010 2
+#110000
+0)
+1(
+1%
+b10011010 !
+0$
+b10011010 6
+b100000 :
+b10000 9
+b110 /
+b110 5
+b101 .
+b101 4
+b1011 1
+b1011 2
+#120000
+1'
+0%
+1$
+1#
+b1101110 !
+0"
+b1101110 6
+b10000000 8
+b1000000 :
+b100 9
+10
+b111 /
+b111 5
+b11 .
+b11 4
+b1100 1
+b1100 2
+#130000
+0&
+1%
+b11110110 !
+1"
+b11110110 6
+b0 8
+b1000 :
+b1 9
+1,
+b11111111 7
+1*
+00
+b100 /
+b100 5
+b1 .
+b1 4
+b1111 -
+b1111 3
+b1101 1
+b1101 2
+#140000
+1)
+0(
+0%
+0$
+b11000101 !
+1"
+b11000101 6
+b10000000 8
+b0 :
+b10000 9
+b1010101 7
+0+
+10
+b0 /
+b0 5
+b101 .
+b101 4
+b101 -
+b101 3
+b1110 1
+b1110 2
+#150000
+0"
+0)
+1&
+b1011100 !
+1%
+b1011100 6
+b1000000 :
+b0 9
+b10011100 7
+0,
+b111 /
+b111 5
+b0 .
+b0 4
+b1100 -
+b1100 3
+b1111 1
+b1111 2
+#160000
+b10000 1
+b10000 2

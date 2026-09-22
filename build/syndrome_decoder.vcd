@@ -1,0 +1,84 @@
+$date
+	Tue Sep 22 04:02:35 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_syndrome_decoder $end
+$var wire 3 ! syndrome [2:0] $end
+$var reg 7 " hamming_recibido [6:0] $end
+$scope module dut $end
+$var wire 7 # hamming_recibido [6:0] $end
+$var wire 1 $ s1 $end
+$var wire 1 % s2 $end
+$var wire 1 & s4 $end
+$var wire 3 ' syndrome [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 '
+0&
+0%
+0$
+b0 #
+b0 "
+b0 !
+$end
+#10000
+b1 !
+b1 '
+1$
+b1 "
+b1 #
+#20000
+0$
+b10 !
+b10 '
+1%
+b10 "
+b10 #
+#30000
+b11 !
+b11 '
+1$
+b100 "
+b100 #
+#40000
+0$
+0%
+b100 !
+b100 '
+1&
+b1000 "
+b1000 #
+#50000
+b101 !
+b101 '
+1$
+b10000 "
+b10000 #
+#60000
+0$
+1%
+b110 !
+b110 '
+1&
+b100000 "
+b100000 #
+#70000
+1$
+1%
+b111 !
+b111 '
+1&
+b1000000 "
+b1000000 #
+#80000
