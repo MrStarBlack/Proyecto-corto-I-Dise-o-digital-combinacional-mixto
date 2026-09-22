@@ -206,9 +206,12 @@ T = 10.55 ns y N=5:
 tPD = T/ (2·5) = 1.055 ns
 
 ### Apendice 2 (Bitácoras):
+BITACORA JORGE CHAVARRIA MATA
 <img width="1080" height="1290" alt="bitacora1" src="https://github.com/user-attachments/assets/711ad037-9074-482b-852c-460b713fa12f" />
 <img width="1332" height="1600" alt="WhatsApp Image 2026-09-22 at 1 58 21 AM" src="https://github.com/user-attachments/assets/62c3d7ae-0a5f-4de0-bb6d-7bdeadba52d2" />
 <img width="1309" height="1600" alt="WhatsApp Image 2026-09-22 at 1 58 36 AM" src="https://github.com/user-attachments/assets/8eaf5f80-9cc5-4be6-8ade-17e04e8a0699" />
 <img width="1060" height="1458" alt="WhatsApp Image 2026-09-22 at 1 58 55 AM" src="https://github.com/user-attachments/assets/3158d8d3-7af5-4ee6-82ab-307a2064edd5" />
 <img width="905" height="1350" alt="WhatsApp Image 2026-09-22 at 1 59 16 AM" src="https://github.com/user-attachments/assets/5253244f-3a21-445b-a35f-47c44271d309" />
 
+
+DEREK ROJAS CAMACHO
