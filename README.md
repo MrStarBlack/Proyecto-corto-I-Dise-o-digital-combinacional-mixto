@@ -97,6 +97,23 @@ Para el diseño del proyecto se priorizó la funcionalidad antes que la estétic
 
 <img width="319" height="802" alt="WhatsApp Image 2026-09-22 at 1 57 45 AM" src="https://github.com/user-attachments/assets/bc3e291a-4298-4b4f-b38a-09153ab8c644" />
 
+Post-Síntsis Corrección de error:
+<img width="1539" height="683" alt="image" src="https://github.com/user-attachments/assets/38977b21-dd1c-4d85-8cf6-1d407c58eb35" />
+
+Post-Síntesis display 7 segmentos Transmisor:
+<img width="1543" height="654" alt="WhatsApp Image 2026-09-22 at 3 17 05 AM" src="https://github.com/user-attachments/assets/353c28c2-d843-4bde-bafb-09a026adea98" />
+
+Post-Síntesis Inyección del error
+<img width="1526" height="656" alt="WhatsApp Image 2026-09-22 at 3 22 30 AM" src="https://github.com/user-attachments/assets/288e26ae-95c8-4e65-8fbd-966693e7bd4c" />
+
+Post-Síntesis Sindrome
+<img width="1550" height="696" alt="WhatsApp Image 2026-09-22 at 3 30 06 AM" src="https://github.com/user-attachments/assets/04b7f86f-d292-4067-b06a-262624a188ba" />
+
+Post-Síntesis Correción de error
+<img width="1600" height="962" alt="WhatsApp Image 2026-09-22 at 3 32 47 AM" src="https://github.com/user-attachments/assets/09884592-1f67-4b27-a17e-cedc1c35c84e" />
+
+Post-Síntesis Decodificador de Paridad
+<img width="1600" height="962" alt="WhatsApp Image 2026-09-22 at 3 32 47 AM" src="https://github.com/user-attachments/assets/544654f7-3713-4a42-bebf-ef1cbb97213a" />
 
 ## 4. Consumo de recursos
 
