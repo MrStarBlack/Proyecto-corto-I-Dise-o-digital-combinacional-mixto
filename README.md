@@ -116,7 +116,18 @@ Post-Síntesis Decodificador de Paridad
 <img width="1600" height="962" alt="WhatsApp Image 2026-09-22 at 3 32 47 AM" src="https://github.com/user-attachments/assets/544654f7-3713-4a42-bebf-ef1cbb97213a" />
 
 ## 4. Consumo de recursos
-
+Number of wires:                 63
+   Number of wire bits:            148
+   Number of public wires:          63
+   Number of public wire bits:     148
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 36
+     GND                             1
+     IBUF                           13
+     LUT4                            7
+     OBUF                           15
 ## 5. Problemas encontrados durante el proyecto
 Literalmente todo. Desde la implementación de las herramientas hasta la realización del código nos hemos encontrado con demasiadas dificultades. La más importante es con la programación en Visual Studio ya que tuvimos demasiados problemas para implementar todas las herramientas necesarias, debido a que se necesitó ayuda extra del tutor para poder implementarlas. El armado del circuito fue otro problema bastante mayor ya que al tener muchos componentes además de no salir barato tomaba mucho tiempo intentarlo acomodar bien y que no se hicieran falsos contactos. 
 ## Apendices:
