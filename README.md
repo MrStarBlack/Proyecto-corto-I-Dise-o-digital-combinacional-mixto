@@ -56,8 +56,18 @@ Procedimiento:
 Realmente este modulo pasa de binario a otro número en binario que según ese orden enciende los siete LEDS del segmento en forma hexadecimal. 
 Salida: Palabra corregida ilustrada en el display de siete segmentos.
 
+### 3.1 Oscilador de anillo
+Para el primer caso con 5 inversores:  Se armó un oscilador de anillo con 5 inversores del 74HC04 en cascada, con la salida del último realimentada a la entrada del primero. Con un número impar de etapas, el circuito no tiene un punto de equilibrio estable y comienza a oscilar espontáneamente. Cada ciclo completo de oscilación requiere que la señal recorra las N etapas dos veces (ya que tras N inversiones con N impar la señal queda invertida respecto a su estado inicial, y se necesita una segunda vuelta para restaurarla), de modo que el período total T se relaciona con el retardo de propagación promedio de cada inversor tPD mediante T = 2·N·tPD. Con el osciloscopio se midió una frecuencia de oscilación de 94.79 MHz, equivalente a un período T = 10.55 ns. Despejando: tPD = T/ (2·5) = 1.055 ns. Este valor representa el tiempo de propagación promedio (entre tPLH y tPHL) de un único inversor 74HC04 en las condiciones reales de esta implementación en protoboard.
+<img width="800" height="480" alt="Caso1" src="https://github.com/user-attachments/assets/e41c289d-46a2-472d-980d-b7be9f402d82" />
+Para el segundo caso de 3 inversores: Se reconfiguró el circuito para implementar un oscilador de anillo con 3 inversores en cascada. Al tratarse de un número impar de etapas (N = 3), el período total T se relaciona con el retardo de propagación mediante la expresión T = 2NtpD= 6tpD, despejándose como tpD = T / 6. Teóricamente, al reducir las etapas de 5 a 3, el camino de propagación del lazo se acorta, lo que debería resultar en un período menor y una frecuencia de oscilación superior a los 94.79 MHz obtenidos previamente con 5 inversores. Al realizar el real alambrado y medir con el osciloscopio, se registró una frecuencia de conmutación de alta velocidad de 86.58 MHz (esto pudo deberse por acoplamientos de ruido ambiental debido a la sensibilidad de los nodos flotantes). 
+<img width="800" height="480" alt="Caso2_3inv" src="https://github.com/user-attachments/assets/fca9a7e9-5e81-4848-b04a-bd9e43e57ab7" />
+Caso de los 3 inversores con cable de 1 metro: Al insertar una pieza de alambre de aproximadamente 1 metro en el lazo del anillo de 3 inversores, se observó un cambio radical en la señal. La capacitancia y la inductancia añadida por el cable aumentaron mucho la constante de tiempo, colapsando por completo la oscilación natural. En la pantalla del osciloscopio se midió una frecuencia de 48.63 Hz, lo que demuestra que el tramo largo dejó de propagar la conmutación lógica y pasó a comportarse como una antena. 
+<img width="800" height="480" alt="Caso3_1metro" src="https://github.com/user-attachments/assets/4be9b429-8660-447f-886b-1267417a1eea" />
+Caso de inversor con capacitor: Este caso no se pudo lograr ya que el circuito dejó de oscilar y el instrumento pasó a capturar únicamente el ruido del osciloscopio a pesar de usar un capacitor cerámico de 0.1 µF. La señal de salida hubiera significado que el tiempo que le toma a la tensión de salida cruzar el umbral de conmutación (pasar de 0 a 1 lógico) del siguiente inversor representaría directamente el retraso adicional introducido por la constante de tiempo del capacitor. Esto permitiría calcular de forma experimental cómo una mayor capacitancia de carga desacelera el circuito además de ver que efectivamente la onda se ve más estable con un capacitor.
+<img width="800" height="480" alt="Caso5" src="https://github.com/user-attachments/assets/c58ab8d2-0416-487c-8a0c-bb4aa057260c" />
 
-### 3.1 Módulo 1
+
+### 3.2 Módulo 1
 #### 1. Encabezado del módulo
 ```SystemVerilog
 module mi_modulo(
