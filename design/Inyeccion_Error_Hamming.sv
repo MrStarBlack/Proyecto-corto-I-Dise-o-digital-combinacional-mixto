@@ -1,165 +1,55 @@
+// ============================================================
+// ModuloInyeccionErrores.sv
+// Toma la palabra de 8 bits ya codificada (Hamming + paridad DED)
+// y, según el valor de dos switches de 3 bits, invierte 0, 1 o 2
+// bits de esa palabra antes de transmitirla (en este proyecto,
+// antes de mandarla a los LEDs de salida porque nos atrasamos y ya no hay fpgas :c ).
+//
+// Se usó la convención de que el valor binario de cada switch (0 a 7) es
+// directamente el índice del bit que se va a invertir.
+// switch = 000 -> invierte bit0 (LSB)
+// switch = 111 -> invierte bit7 (MSB, el de paridad global)
+// ============================================================
 
-module Inyeccion_Error_Hamming (
+module ModuloInyeccionErrores (
+    input  logic [7:0] palabra_final,  // palabra ya codificada, entrada
+                                         // desde ModuloParidadDED (bit7 =
+                                         // paridad global, bit0 = S3, etc.)
 
-    input  wire [3:0] datos_i,
+    input  logic [2:0] error1,          // Switch de error 1: pines 29,30,33
+    input  logic [2:0] error2,          // Switch de error 2: pines 49,31,32
 
-    input  wire I1_i,
-    input  wire I2_i,
-    input  wire I3_i,
-
-    input  wire [2:0] err1_pos_i,
-    input  wire [2:0] err2_pos_i,
-
-    input  wire error_P_i,
-
-    output wire D0_o,
-    output wire D1_o,
-    output wire D2_o,
-    output wire D3_o,
-
-    output wire I1_o,
-    output wire I2_o,
-    output wire I3_o,
-
-    output wire P_o
+    output logic [7:0] palabra_transmitida
+    // Palabra final ya con los errores insertados, hacia los 8 LEDs
+    // (pines 54,55,56,57,68,69,48,70).
 );
 
-    // =========================================================
-    // PALABRA HAMMING DE ENTRADA
+    logic [7:0] mascara1; // máscara de 8 bits con un solo '1' en la
+                           // posición que indica 'error1', y '0' en
+                           // todas las demás posiciones.
+    logic [7:0] mascara2; // Lo mismo, pero para 'error2'.
+
+    // always_comb recalcula esta logica cada vez que cambia cualquier
+    // entrada. Aqui se convertierte un numero de 3 bits (0-7) en un bus(palabra) de 8 bits donde
+    // solo la posicion indicada por ese numero vale 1.
     //
-    // bit 0 = D0
-    // bit 1 = D1
-    // bit 2 = D2
-    // bit 3 = D3
-    // bit 4 = I1
-    // bit 5 = I2
-    // bit 6 = I3
-    // bit 7 = P
-    //
-    // P se calcula a partir de las paridades.
-    // error_P_i NO forma parte de la palabra base.
-    // =========================================================
-
-    wire [7:0] palabra_base;
-
-    assign palabra_base = {
-        (I1_i ^ I2_i ^ I3_i),  // bit 7 = P
-        I3_i,                  // bit 6
-        I2_i,                  // bit 5
-        I1_i,                  // bit 4
-        datos_i[3],            // bit 3
-        datos_i[2],            // bit 2
-        datos_i[1],            // bit 1
-        datos_i[0]             // bit 0
-    };
-
-
-    // =========================================================
-    // MASCARA ERROR 1
-    //
-    // 000 = ningún error
-    // 001 = D0
-    // 010 = D1
-    // 011 = D2
-    // 100 = D3
-    // 101 = I1
-    // 110 = I2
-    // 111 = I3
-    // =========================================================
-
-    reg [7:0] mask_error1;
-
-    always @(*) begin
-
-        case (err1_pos_i)
-
-            3'b000: mask_error1 = 8'b00000000;
-
-            3'b001: mask_error1 = 8'b00000001; // D0
-            3'b010: mask_error1 = 8'b00000010; // D1
-            3'b011: mask_error1 = 8'b00000100; // D2
-            3'b100: mask_error1 = 8'b00001000; // D3
-
-            3'b101: mask_error1 = 8'b00010000; // I1
-            3'b110: mask_error1 = 8'b00100000; // I2
-            3'b111: mask_error1 = 8'b01000000; // I3
-
-            default: mask_error1 = 8'b00000000;
-
-        endcase
-
+    // La expresión 8'b1 << error1 es un corrimiento (shift): toma el
+    // valor 00000001 y lo recorre 'error1' posiciones hacia la
+    // izquierda. Por ejemplo, si error1 = 3 (011), el resultado es
+    // 00001000 (el '1' quedo en la posición 3). Esto reemplaza tener
+    // que escribir un case largo con las 8 combinaciones a mano.
+    always_comb begin
+        mascara1 = 8'b00000001 << error1;
+        mascara2 = 8'b00000001 << error2;
     end
 
-
-    // =========================================================
-    // MASCARA ERROR 2
-    // =========================================================
-
-    reg [7:0] mask_error2;
-
-    always @(*) begin
-
-        case (err2_pos_i)
-
-            3'b000: mask_error2 = 8'b00000000;
-
-            3'b001: mask_error2 = 8'b00000001; // D0
-            3'b010: mask_error2 = 8'b00000010; // D1
-            3'b011: mask_error2 = 8'b00000100; // D2
-            3'b100: mask_error2 = 8'b00001000; // D3
-
-            3'b101: mask_error2 = 8'b00010000; // I1
-            3'b110: mask_error2 = 8'b00100000; // I2
-            3'b111: mask_error2 = 8'b01000000; // I3
-
-            default: mask_error2 = 8'b00000000;
-
-        endcase
-
-    end
-
-
-    // =========================================================
-    // ERROR DE PARIDAD GLOBAL
-    //
-    // error_P_i = 1 -> invertir P
-    // error_P_i = 0 -> no modificar P
-    // =========================================================
-
-    wire [7:0] mask_errorP;
-
-    assign mask_errorP = error_P_i
-                       ? 8'b10000000
-                       : 8'b00000000;
-
-
-    // =========================================================
-    // PALABRA FINAL CON ERRORES
-    // =========================================================
-
-    wire [7:0] palabra_con_error;
-
-    assign palabra_con_error =
-            palabra_base
-          ^ mask_error1
-          ^ mask_error2
-          ^ mask_errorP;
-
-
-    // =========================================================
-    // SALIDAS
-    // =========================================================
-
-    assign D0_o = palabra_con_error[0];
-    assign D1_o = palabra_con_error[1];
-    assign D2_o = palabra_con_error[2];
-    assign D3_o = palabra_con_error[3];
-
-    assign I1_o = palabra_con_error[4];
-    assign I2_o = palabra_con_error[5];
-    assign I3_o = palabra_con_error[6];
-
-    assign P_o = palabra_con_error[7];
+    // Se aplica XOR de la palabra original con ambas mascaras a la vez:
+    // - Si un bit tiene un 1 en una sola mascara, ese bit se invierte
+    //   (se introduce el error ahí).
+    // - Si un bit tiene un 1 en las dos mascaras (ambos switches
+    //   apuntan a la misma posición), el XOR de ambas mascaras en esa
+    //   posición da 0 (1 XOR 1 = 0), asi que el bit no se invierte
+    //   en neto: es la cancelacion por doble negacion que se pidio
+    assign palabra_transmitida = palabra_final ^ mascara1 ^ mascara2;
 
 endmodule
-
