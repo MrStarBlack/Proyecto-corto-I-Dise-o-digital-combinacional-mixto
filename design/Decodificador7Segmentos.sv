@@ -7,23 +7,23 @@
 // ============================================================
 
 module Decodificador7Segmentos (
-    input  logic [3:0] dato,        // Entrada: los 4 bits D3 D2 D1 D0 a mostrar
+    input  logic [3:0] dato,        // Entrada a los 4 bits D3 D2 D1 D0 a mostrar
     output logic        seg_a,       // Salida individual para cada segmento.
     output logic        seg_b,       // Cada una va directo al pin de la FPGA
-    output logic        seg_c,       // que ya tienes mapeado (38,37,36,39,25,26,27)
+    output logic        seg_c,       // que se asigno en este orden:38,37,36,39,25,26,27
     output logic        seg_d,
     output logic        seg_e,
     output logic        seg_f,
     output logic        seg_g,
-    output logic        transistor_en // Controla la base del NPN (pin 28).
+    output logic        transistor_en // Controla la base del NPN (pin 28)
                                        // En '1' satura el transistor -> cátodo
-                                       // a GND -> display encendido.
+                                       // a GND -> display encendido
 );
 
     // 'logic' aquí cumple el mismo rol que un 'wire', pero es el tipo
     // moderno recomendado en SystemVerilog: representa una conexión física
-    // (un cable) entre este módulo y lo que lo instancie. No almacena nada
-    // por sí sola; su valor lo determina lo que esté conectado a ella
+    // (un cable) entre este modulo y lo que lo instancie. No almacena nada
+    // por si sola; su valor lo determina lo que esté conectado a ella
     // (en este caso, el resultado del 'always_comb' de abajo).
     logic [6:0] segmentos; // Empaqueta las 7 salidas a,b,c,d,e,f,g en un solo bus
                            // interno, solo para que el 'case' sea más compacto
@@ -31,11 +31,10 @@ module Decodificador7Segmentos (
 
     // 'always_comb' describe lógica puramente combinacional: la salida
     // se recalcula automáticamente cada vez que cambia 'dato', sin reloj
-    // ni memoria de por medio (a diferencia de 'always_ff', que sí
-    // necesita un flanco de reloj).
+    // ni memoria de por medio porque no es permitido
     always_comb begin
         case (dato)
-            // Orden de bits: {g,f,e,d,c,b,a}. Un '1' enciende el segmento
+            // Orden de bits: {g,f,e,d,c,b,a}. Un 1 enciende el segmento
             // porque el display es cátodo común y cada pin de segmento
             // va conectado directo (sin transistor) desde la FPGA.
             4'h0: segmentos = 7'b0111111; // 0
@@ -59,7 +58,7 @@ module Decodificador7Segmentos (
     end
 
     // Se reparte el bus interno 'segmentos' hacia los 7 pines individuales
-    // de salida del módulo, en el mismo orden {g,f,e,d,c,b,a} definido arriba.
+    // de salida del modulo, en el mismo orden: g,f,e,d,c,b,a definido arriba.
     assign seg_g = segmentos[6];
     assign seg_f = segmentos[5];
     assign seg_e = segmentos[4];
@@ -69,8 +68,7 @@ module Decodificador7Segmentos (
     assign seg_a = segmentos[0];
 
     // El display siempre debe estar encendido en este subsistema
-    // (no hay multiplexado con otros displays todavía), así que el
-    // transistor se mantiene saturado de forma constante.
+    // así que el transistor se mantiene saturado de forma constante.
     assign transistor_en = 1'b1;
 
 endmodule
