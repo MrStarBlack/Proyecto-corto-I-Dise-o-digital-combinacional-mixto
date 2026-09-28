@@ -155,35 +155,35 @@ El módulo no utiliza parámetros configurables, es decir, las dimensiones de la
 #### 4. Criterios de diseño
 Para el diseño del proyecto se priorizó la funcionalidad antes que la estética, sin embargo también está en duda, debido a los constantes problemas que se tuvieron para implementar las herramientas. Se priorizó completar el transmisor debido a que es la parte más complicada de hacer y luego se realizó el receptor.
 #### 5. Testbench
-<img width="862" height="795" alt="WhatsApp Image 2026-09-22 at 2 15 17 AM" src="https://github.com/user-attachments/assets/86b6536a-04af-46b5-8a10-da25e19b4248" />
+Simulaciones para el decodificador 7 segmentos:
+<img width="1196" height="289" alt="WhatsApp Image 2026-09-27 at 9 10 14 PM" src="https://github.com/user-attachments/assets/e3763ba7-9d35-4d72-bca1-3088160e7586" />
+<img width="903" height="474" alt="WhatsApp Image 2026-09-27 at 9 11 09 PM" src="https://github.com/user-attachments/assets/b5ab35c0-1a10-4297-93ee-134e146564d6" />
 
-<img width="508" height="391" alt="WhatsApp Image 2026-09-22 at 1 49 29 AM" src="https://github.com/user-attachments/assets/22647979-52ba-4728-a3d7-ca6215c6353b" />
+Simulaciones para el Hamming:
+<img width="1440" height="819" alt="WhatsApp Image 2026-09-28 at 12 28 04 AM" src="https://github.com/user-attachments/assets/907c745c-01ca-4c7b-b6fc-9dd2f5b31fdd" />
+<img width="1600" height="811" alt="WhatsApp Image 2026-09-28 at 12 28 46 AM" src="https://github.com/user-attachments/assets/8f238951-09ed-49db-835e-b0ca069f575e" />
+<img width="963" height="920" alt="WhatsApp Image 2026-09-28 at 12 28 33 AM" src="https://github.com/user-attachments/assets/bafbf411-5220-4dec-bd11-234625774ce5" />
+<img width="960" height="897" alt="WhatsApp Image 2026-09-28 at 12 28 24 AM" src="https://github.com/user-attachments/assets/acf44eae-b76e-4816-9aa5-7470d78aaef9" />
+<img width="958" height="918" alt="WhatsApp Image 2026-09-28 at 12 28 14 AM" src="https://github.com/user-attachments/assets/234d517e-5f72-495d-930a-eba36718c5ac" />
 
-<img width="1044" height="803" alt="WhatsApp Image 2026-09-22 at 1 51 23 AM" src="https://github.com/user-attachments/assets/713ffbd8-7ffd-4836-ac25-b5531ad07814" />
+Simulaciones para la paridad DED:
+<img width="1600" height="857" alt="WhatsApp Image 2026-09-28 at 1 00 23 AM" src="https://github.com/user-attachments/assets/680da941-68ab-4248-bbe8-50640eba3040" />
+<img width="1130" height="811" alt="WhatsApp Image 2026-09-28 at 12 59 27 AM" src="https://github.com/user-attachments/assets/efceb339-ce59-4ad6-9fe6-ad3c9fe2bc35" />
+<img width="1032" height="923" alt="WhatsApp Image 2026-09-28 at 12 59 08 AM" src="https://github.com/user-attachments/assets/04ff58db-4c96-4cff-b07e-a97564fa88ee" />
+<img width="1028" height="893" alt="WhatsApp Image 2026-09-28 at 12 58 59 AM" src="https://github.com/user-attachments/assets/7c5d52c3-a0e7-4faf-a86d-fec0618f1a7d" />
+<img width="1460" height="942" alt="WhatsApp Image 2026-09-28 at 12 58 46 AM" src="https://github.com/user-attachments/assets/b9148f9a-315b-4212-b311-26029b9f6c2d" />
 
-<img width="521" height="236" alt="WhatsApp Image 2026-09-22 at 1 51 55 AM" src="https://github.com/user-attachments/assets/5116208e-96a6-4e96-8113-7db94ee3a146" />
+Simulaciones para la inyección de uno,dos o ningún error:
+<img width="1600" height="747" alt="WhatsApp Image 2026-09-28 at 1 28 41 AM (3)" src="https://github.com/user-attachments/assets/814d1533-cd3b-47f4-8129-0ae679bc6731" />
+<img width="998" height="343" alt="WhatsApp Image 2026-09-28 at 1 28 41 AM (2)" src="https://github.com/user-attachments/assets/d1eab4d8-3710-4ad6-9845-bf1591293571" />
+<img width="865" height="811" alt="WhatsApp Image 2026-09-28 at 1 28 41 AM (1)" src="https://github.com/user-attachments/assets/8f789239-72f4-414b-b653-0d29842e5fd6" />
+<img width="1441" height="757" alt="WhatsApp Image 2026-09-28 at 1 28 41 AM" src="https://github.com/user-attachments/assets/86d68633-3b91-4638-a0e8-fa4e2985f57e" />
 
-<img width="916" height="810" alt="WhatsApp Image 2026-09-22 at 1 52 47 AM" src="https://github.com/user-attachments/assets/ac57362e-70e3-4c9b-bf63-f5fbc8d338ec" />
+Simulación del topTransmisor:
+<img width="1600" height="506" alt="WhatsApp Image 2026-09-28 at 4 18 41 AM (2)" src="https://github.com/user-attachments/assets/887f0750-77a5-4f09-ad71-dbc0a8f86b5e" />
+<img width="880" height="503" alt="WhatsApp Image 2026-09-28 at 4 18 41 AM (1)" src="https://github.com/user-attachments/assets/26d2328b-579a-4b3b-9259-32cc4ea7f3c2" />
+<img width="1022" height="739" alt="WhatsApp Image 2026-09-28 at 4 18 41 AM" src="https://github.com/user-attachments/assets/cdaf6582-06e9-4876-829b-f1f3d8468eb7" />
 
-<img width="319" height="802" alt="WhatsApp Image 2026-09-22 at 1 57 45 AM" src="https://github.com/user-attachments/assets/bc3e291a-4298-4b4f-b38a-09153ab8c644" />
-
-Post-Síntsis Corrección de error:
-<img width="1539" height="683" alt="image" src="https://github.com/user-attachments/assets/38977b21-dd1c-4d85-8cf6-1d407c58eb35" />
-
-Post-Síntesis display 7 segmentos Transmisor:
-<img width="1543" height="654" alt="WhatsApp Image 2026-09-22 at 3 17 05 AM" src="https://github.com/user-attachments/assets/353c28c2-d843-4bde-bafb-09a026adea98" />
-
-Post-Síntesis Inyección del error
-<img width="1526" height="656" alt="WhatsApp Image 2026-09-22 at 3 22 30 AM" src="https://github.com/user-attachments/assets/288e26ae-95c8-4e65-8fbd-966693e7bd4c" />
-
-Post-Síntesis Sindrome
-<img width="1550" height="696" alt="WhatsApp Image 2026-09-22 at 3 30 06 AM" src="https://github.com/user-attachments/assets/04b7f86f-d292-4067-b06a-262624a188ba" />
-
-Post-Síntesis Correción de error
-<img width="1600" height="962" alt="WhatsApp Image 2026-09-22 at 3 32 47 AM" src="https://github.com/user-attachments/assets/09884592-1f67-4b27-a17e-cedc1c35c84e" />
-
-Post-Síntesis Decodificador de Paridad
-<img width="1600" height="962" alt="WhatsApp Image 2026-09-22 at 3 32 47 AM" src="https://github.com/user-attachments/assets/544654f7-3713-4a42-bebf-ef1cbb97213a" />
 
 ## 4. Consumo de recursos
 Number of wires:                 63
@@ -199,7 +199,7 @@ Number of wires:                 63
      LUT4                            7
      OBUF                           15
 ## 5. Problemas encontrados durante el proyecto
-Literalmente todo. Desde la implementación de las herramientas hasta la realización del código nos hemos encontrado con demasiadas dificultades. La más importante es con la programación en Visual Studio ya que tuvimos demasiados problemas para implementar todas las herramientas necesarias, debido a que se necesitó ayuda extra del tutor para poder implementarlas. El armado del circuito fue otro problema bastante mayor ya que al tener muchos componentes además de no salir barato tomaba mucho tiempo intentarlo acomodar bien y que no se hicieran falsos contactos. 
+Literalmente todo. Desde la implementación de las herramientas hasta la realización del código nos hemos encontrado con demasiadas dificultades. La más importante es con la programación en Visual Studio ya que tuvimos demasiados problemas para implementar todas las herramientas necesarias, debido a que se necesitó ayuda extra del tutor para poder implementarlas. El armado del circuito fue otro problema bastante grande puesto que al tener muchos componentes si no se mantenía el orden era muy fácil perderse además de que los pines de la fgpa no son ordenados. Además esta misma presenta un fallo en el pin 35 que hace que no pueda recibir datos y nos dimos cuenta con ya pruebas avanzadas de este percanse.
 ## Apendices:
 ### Apendice 1:
 Con esto se puede calcular el tiempo de propagación promedio del inversor TTL;
