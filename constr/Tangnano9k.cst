@@ -1,123 +1,86 @@
-// ==========================================
-// CONFIGURACIÓN DE PINES - TANG NANO 9K
-// Proyecto Hamming(7,4)+DED - Transmisor
-// ==========================================
+IO_LOC  "D0" 34;
+IO_PORT "D0" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
+IO_LOC  "D1" 40;
+IO_PORT "D1" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-// ==========================================
-// ENTRADAS DE DATOS (D0-D3)
-// ==========================================
+IO_LOC  "D2" 28;
+IO_PORT "D2" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-IO_LOC "D0" 34;
-IO_PORT "D0" PULL_MODE=DOWN;
+IO_LOC  "D3" 41;
+IO_PORT "D3" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-IO_LOC "D1" 40;
-IO_PORT "D1" PULL_MODE=DOWN;
+IO_LOC  "S1" 42;
+IO_PORT "S1" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-IO_LOC "D2" 35;
-IO_PORT "D2" PULL_MODE=DOWN;
+IO_LOC  "S2" 51;
+IO_PORT "S2" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-IO_LOC "D3" 41;
-IO_PORT "D3" PULL_MODE=DOWN;
+IO_LOC  "S3" 53;
+IO_PORT "S3" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
+IO_LOC  "seg_a" 38;
+IO_PORT "seg_a" DRIVE=8 IO_TYPE=LVCMOS33;
 
-// ==========================================
-// ENTRADAS DE SÍNDROMES (S1-S3, desde 74HC86)
-// ==========================================
+IO_LOC  "seg_b" 37;
+IO_PORT "seg_b" DRIVE=8 IO_TYPE=LVCMOS33;
 
-IO_LOC "S1" 42;
-IO_PORT "S1" PULL_MODE=DOWN;
+IO_LOC  "seg_c" 36;
+IO_PORT "seg_c" DRIVE=8 IO_TYPE=LVCMOS33;
 
-IO_LOC "S2" 51;
-IO_PORT "S2" PULL_MODE=DOWN;
+IO_LOC  "seg_d" 39;
+IO_PORT "seg_d" DRIVE=8 IO_TYPE=LVCMOS33;
 
-IO_LOC "S3" 53;
-IO_PORT "S3" PULL_MODE=DOWN;
+IO_LOC  "seg_e" 25;
+IO_PORT "seg_e" DRIVE=8 IO_TYPE=LVCMOS33;
 
+IO_LOC  "seg_f" 26;
+IO_PORT "seg_f" DRIVE=8 IO_TYPE=LVCMOS33;
 
-// ==========================================
-// SALIDA DISPLAY 7 SEGMENTOS (cátodo común)
-// ==========================================
+IO_LOC  "seg_g" 27;
+IO_PORT "seg_g" DRIVE=8 IO_TYPE=LVCMOS33;
 
-IO_LOC "seg_a" 38;
-IO_PORT "seg_a" DRIVE=8;
+IO_LOC  "transistor_en" 0;
+IO_PORT "transistor_en" DRIVE=8 IO_TYPE=LVCMOS33;
 
-IO_LOC "seg_b" 37;
-IO_PORT "seg_b" DRIVE=8;
+IO_LOC  "error1[2]" 33;
+IO_PORT "error1[2]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-IO_LOC "seg_c" 36;
-IO_PORT "seg_c" DRIVE=8;
+IO_LOC  "error1[1]" 30;
+IO_PORT "error1[1]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-IO_LOC "seg_d" 39;
-IO_PORT "seg_d" DRIVE=8;
+IO_LOC  "error1[0]" 29;
+IO_PORT "error1[0]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-IO_LOC "seg_e" 25;
-IO_PORT "seg_e" DRIVE=8;
+IO_LOC  "error2[2]" 32;
+IO_PORT "error2[2]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-IO_LOC "seg_f" 26;
-IO_PORT "seg_f" DRIVE=8;
+IO_LOC  "error2[1]" 31;
+IO_PORT "error2[1]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-IO_LOC "seg_g" 27;
-IO_PORT "seg_g" DRIVE=8;
+IO_LOC  "error2[0]" 49;
+IO_PORT "error2[0]" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
 
-// Control del transistor NPN (común/cátodo del display)
-IO_LOC "transistor_en" 28;
-IO_PORT "transistor_en" DRIVE=8;
+IO_LOC  "palabra_transmitida[0]" 54;
+IO_PORT "palabra_transmitida[0]" DRIVE=8 IO_TYPE=LVCMOS33;
 
+IO_LOC  "palabra_transmitida[1]" 55;
+IO_PORT "palabra_transmitida[1]" DRIVE=8 IO_TYPE=LVCMOS33;
 
-// ==========================================
-// ENTRADAS DE POSICIÓN ERROR 1 (3 bits)
-// ==========================================
+IO_LOC  "palabra_transmitida[2]" 56;
+IO_PORT "palabra_transmitida[2]" DRIVE=8 IO_TYPE=LVCMOS33;
 
-IO_LOC "error1[2]" 29;
-IO_PORT "error1[2]" PULL_MODE=DOWN;
+IO_LOC  "palabra_transmitida[3]" 57;
+IO_PORT "palabra_transmitida[3]" DRIVE=8 IO_TYPE=LVCMOS33;
 
-IO_LOC "error1[1]" 30;
-IO_PORT "error1[1]" PULL_MODE=DOWN;
+IO_LOC  "palabra_transmitida[4]" 68;
+IO_PORT "palabra_transmitida[4]" DRIVE=8 IO_TYPE=LVCMOS33;
 
-IO_LOC "error1[0]" 33;
-IO_PORT "error1[0]" PULL_MODE=DOWN;
+IO_LOC  "palabra_transmitida[5]" 69;
+IO_PORT "palabra_transmitida[5]" DRIVE=8 IO_TYPE=LVCMOS33;
 
+IO_LOC  "palabra_transmitida[6]" 48;
+IO_PORT "palabra_transmitida[6]" DRIVE=8 IO_TYPE=LVCMOS33;
 
-// ==========================================
-// ENTRADAS DE POSICIÓN ERROR 2 (3 bits)
-// ==========================================
-
-IO_LOC "error2[2]" 49;
-IO_PORT "error2[2]" PULL_MODE=DOWN;
-
-IO_LOC "error2[1]" 31;
-IO_PORT "error2[1]" PULL_MODE=DOWN;
-
-IO_LOC "error2[0]" 32;
-IO_PORT "error2[0]" PULL_MODE=DOWN;
-
-
-// ==========================================
-// SALIDA: PALABRA TRANSMITIDA (8 bits, a LEDs)
-// bit7 = paridad global (MSB) ... bit0 = S3 (LSB)
-// ==========================================
-
-IO_LOC "palabra_transmitida[0]" 54;
-IO_PORT "palabra_transmitida[0]" DRIVE=8;
-
-IO_LOC "palabra_transmitida[1]" 55;
-IO_PORT "palabra_transmitida[1]" DRIVE=8;
-
-IO_LOC "palabra_transmitida[2]" 56;
-IO_PORT "palabra_transmitida[2]" DRIVE=8;
-
-IO_LOC "palabra_transmitida[3]" 57;
-IO_PORT "palabra_transmitida[3]" DRIVE=8;
-
-IO_LOC "palabra_transmitida[4]" 68;
-IO_PORT "palabra_transmitida[4]" DRIVE=8;
-
-IO_LOC "palabra_transmitida[5]" 69;
-IO_PORT "palabra_transmitida[5]" DRIVE=8;
-
-IO_LOC "palabra_transmitida[6]" 48;
-IO_PORT "palabra_transmitida[6]" DRIVE=8;
-
-IO_LOC "palabra_transmitida[7]" 70;
-IO_PORT "palabra_transmitida[7]" DRIVE=8;
+IO_LOC  "palabra_transmitida[7]" 70;
+IO_PORT "palabra_transmitida[7]" DRIVE=8 IO_TYPE=LVCMOS33;
