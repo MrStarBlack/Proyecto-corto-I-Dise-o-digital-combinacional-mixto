@@ -1,49 +1,25 @@
 // ============================================================
-// topTransmisor.sv
-// No hace lógica propia ya que solo
-// conecta entre si los 4 submodulos y expone hacia afuera los
-// puertos que se asignan a pines físicos en el archivo .cst.
-//
-// Flujo de datos:
-//   D0-D3 --> Decodificador7Segmentos --> display (muestra el dato)
-//   D0-D3 + S1-S3 --> ModuloHamming --> palabra de 7 bits
-//   7 bits --> ModuloParidadDED --> palabra de 8 bits
-//   8 bits + error1 + error2 --> ModuloInyeccionErrores --> LEDs
-//
-// Los nombres de los puertos de este modulo deben coincidir
-// exactamente con los nombres usados en el archivo .cst
+// topTransmisor.v
+// Modulo raiz: solo conecta los submodulos. Sus puertos deben
+// llamarse igual que en el archivo .cst.
 // ============================================================
-
-module topTransmisor (
-    // ---- Entradas: datos del usuario (switches) ----
-    input  logic D0, D1, D2, D3,
-
-    // ---- Entradas: síndromes calculados por los 74HC86 ----
-    input  logic S1, S2, S3,
-
-    // ---- Entradas: switches de posición de error ----
-    input  logic [2:0] error1,
-    input  logic [2:0] error2,
-
-    // ---- Salidas: display de 7 segmentos (cátodo común) ----
-    output logic seg_a, seg_b, seg_c, seg_d, seg_e, seg_f, seg_g,
-    output logic transistor_en,   // base del NPN (pin 28)
-
-    // ---- Salidas: palabra transmitida hacia los 8 LEDs ----
-    output logic [7:0] palabra_transmitida
+module top (
+    input D0, D1, D2, D3,          // Switches de datos
+    input S1, S2, S3,              // Sindromes de los 74HC86
+    input [2:0] error1,            // Switches de error 1
+    input [2:0] error2,            // Switches de error 2
+    output seg_a, seg_b, seg_c, seg_d, seg_e, seg_f, seg_g,
+    output [7:0] palabra_transmitida  // A los 8 LEDs
 );
 
-    // Cables internos conectan la salida de un submodulo con la
-    // entrada del siguiente. 'logic' actúa aquí como un wire; no
-    // guarda nada, solo transporta la señal entre modulos.
-    logic [6:0] palabra_codificada; // Sale de ModuloHamming (7 bits)
-    logic [7:0] palabra_final;      // Sale de ModuloParidadDED (8 bits)
+    // Cables internos entre submodulos.
+    wire [6:0] palabra_codificada;
+    wire [7:0] palabra_final;
 
-    // ------------------------------------------------------------
-    // 1) Display: muestra en hexadecimal el dato de 4 bits.
-    // Se concatena {D3,D2,D1,D0} para que D3 sea el bit más
-    // significativo del número mostrado (D0 es el menos significativo).
-    // ------------------------------------------------------------
+    // 1) Display: {D3,D2,D1,D0} con D3 como bit mas significativo.
+    // La salida transistor_en del decodificador queda sin conectar
+    // (.transistor_en ()) porque la base del NPN ahora va directo al
+    // 3V3 por medio de su resistencia, sin usar un pin de la FPGA.
     Decodificador7Segmentos u_display (
         .dato          ({D3, D2, D1, D0}),
         .seg_a         (seg_a),
@@ -53,39 +29,28 @@ module topTransmisor (
         .seg_e         (seg_e),
         .seg_f         (seg_f),
         .seg_g         (seg_g),
-        .transistor_en (transistor_en)
+        .transistor_en ()
     );
 
-    // ------------------------------------------------------------
-    // 2) Empaqueta datos + síndromes en la palabra de 7 bits.
-    // ------------------------------------------------------------
+    // 2) Datos + sindromes -> palabra de 7 bits.
     ModuloHamming u_hamming (
-        .D0                 (D0),
-        .D1                 (D1),
-        .D2                 (D2),
-        .D3                 (D3),
-        .S1                 (S1),
-        .S2                 (S2),
-        .S3                 (S3),
-        .palabra_codificada (palabra_codificada)
+        .D0(D0), .D1(D1), .D2(D2), .D3(D3),
+        .S1(S1), .S2(S2), .S3(S3),
+        .palabra_codificada(palabra_codificada)
     );
 
-    // ------------------------------------------------------------
-    // 3) Calcula la paridad global y arma la palabra de 8 bits.
-    // ------------------------------------------------------------
+    // 3) Paridad global -> palabra de 8 bits.
     ModuloParidadDED u_paridad (
-        .palabra_codificada (palabra_codificada),
-        .palabra_final      (palabra_final)
+        .palabra_codificada(palabra_codificada),
+        .palabra_final(palabra_final)
     );
 
-    // ------------------------------------------------------------
-    // 4) Inserta 0, 1 o 2 errores y entrega la palabra a los LEDs.
-    // ------------------------------------------------------------
+    // 4) Insercion de errores -> LEDs.
     ModuloInyeccionErrores u_errores (
-        .palabra_final       (palabra_final),
-        .error1              (error1),
-        .error2              (error2),
-        .palabra_transmitida (palabra_transmitida)
+        .palabra_final(palabra_final),
+        .error1(error1),
+        .error2(error2),
+        .palabra_transmitida(palabra_transmitida)
     );
 
 endmodule
