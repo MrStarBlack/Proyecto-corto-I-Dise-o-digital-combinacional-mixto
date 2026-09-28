@@ -242,7 +242,8 @@ DEREK ROJAS CAMACHO
 <img width="1224" height="1600" alt="WhatsApp Image 2026-09-22 at 6 540  AM" src="https://github.com/user-attachments/assets/d93b9725-1930-49bb-9059-d6f3a7725c8f" />
 <img width="1264" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 06AM" src="https://github.com/user-attachments/assets/30e24d61-16e2-475c-aec4-c8e57773fe75" />
 <img width="1234" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 04 AM" src="https://github.com/user-attachments/assets/cbe225b9-213f-46e6-9a86-05ebd4944921" />
-<img width="1196" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 07 AM" src="https://github.com/user-attachments/assets/3ed32041-24c0-4807-ae0f-f6b54007df6b" />
-<img width="1226" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 08 AM" src="https://github.com/user-attachments/assets/2cfa42f4-3e4b-475f-ba53-9eaa21412bce" />
-<img width="1272" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 05 AM" src="https://github.com/user-attachments/assets/6a646646-2bc1-409e-a752-89b57fd34159" />
-<img width="1228" height="1600" alt="WhatsApp Image 2026-09-22 at 6 54 09 AM" src="https://github.com/user-attachments/assets/7be3f319-5ebe-4e05-9c36-10ae1cbce338" />
+<img width="1940" height="2516" alt="60bf0eb2-3922-4a3e-96c8-f2c259c2cf59" src="https://github.com/user-attachments/assets/d796f31d-3c0c-4fe7-91a9-599091ddf56d" />
+<img width="2368" height="1532" alt="0e6421af-2392-4f02-bc33-7689ae6fda80" src="https://github.com/user-attachments/assets/965d9782-2e95-4307-898b-01a8311b4ee4" />
+<img width="2364" height="2508" alt="1f28d4f0-6f71-4507-831d-8e451d3b464a" src="https://github.com/user-attachments/assets/0d181381-10d5-429b-852b-7af84df584f3" />
+<img width="2064" height="2872" alt="1d83fb73-9429-4154-a9b7-b5f672b3c6be" src="https://github.com/user-attachments/assets/1b7d4fbf-26f5-4b5e-bdd0-b7c5cfb4ea69" />
+<img width="1924" height="2496" alt="f98d2bd2-6d96-4247-b2bd-c04da49ba682" src="https://github.com/user-attachments/assets/6f370f45-48a5-4aa0-9700-0379a4cd1c2a" />
