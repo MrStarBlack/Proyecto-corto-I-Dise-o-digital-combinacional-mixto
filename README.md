@@ -184,6 +184,24 @@ Simulación del topTransmisor:
 <img width="880" height="503" alt="WhatsApp Image 2026-09-28 at 4 18 41 AM (1)" src="https://github.com/user-attachments/assets/26d2328b-579a-4b3b-9259-32cc4ea7f3c2" />
 <img width="1022" height="739" alt="WhatsApp Image 2026-09-28 at 4 18 41 AM" src="https://github.com/user-attachments/assets/cdaf6582-06e9-4876-829b-f1f3d8468eb7" />
 
+Simulación del Verificador de Paridad
+<img width="1268" height="186" alt="Captura de pantalla 2026-09-28 170449" src="https://github.com/user-attachments/assets/6b0d665d-4920-42ae-b0fd-ddbf19c37d26" />
+<img width="1044" height="803" alt="Captura de pantalla 2026-09-22 013314" src="https://github.com/user-attachments/assets/036a5002-4747-444f-bcdf-779f63a69b76" />
+
+Simulación del determinador del síndrome
+<img width="1632" height="184" alt="Captura de pantalla 2026-09-28 171139" src="https://github.com/user-attachments/assets/85031145-abc1-4638-8cc8-19f076b3b843" />
+<img width="462" height="566" alt="Captura de pantalla 2026-09-28 170722" src="https://github.com/user-attachments/assets/81089f39-597d-4d1e-93f8-dda059db3cd1" />
+
+Simulación de la Corrección de error
+<img width="1612" height="248" alt="Captura de pantalla 2026-09-28 171727" src="https://github.com/user-attachments/assets/4befb826-e16a-433e-aa93-e7a04c3c821c" />
+<img width="515" height="587" alt="Captura de pantalla 2026-09-28 171610" src="https://github.com/user-attachments/assets/1c1db32c-cef8-4bb7-909a-6eb5b71ff663" />
+
+Simulación del display del Receptor
+<img width="1481" height="314" alt="Captura de pantalla 2026-09-28 172306" src="https://github.com/user-attachments/assets/37e8ad4a-85f0-4d9a-a42c-562accb0a2e3" />
+<img width="621" height="696" alt="Captura de pantalla 2026-09-28 172121" src="https://github.com/user-attachments/assets/513241f1-ea3f-49ae-a8a5-f8acc8c054db" />
+
+
+
 
 ## 4. Consumo de recursos
 Number of wires:                 63
