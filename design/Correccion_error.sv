@@ -8,148 +8,28 @@ module Correccion_error (
     output logic       SEC,
     output logic       DED
 );
+    logic [6:0] flip;
 
-    // ------------------------------------------------
-    // Corrección de errores Hamming (7,4)
-    //
-    // Posiciones:
-    // 1 = B1 = palabra_hamming[6]
-    // 2 = B2 = palabra_hamming[5]
-    // 3 = B3 = palabra_hamming[4]
-    // 4 = B4 = palabra_hamming[3]
-    // 5 = B5 = palabra_hamming[2]
-    // 6 = B6 = palabra_hamming[1]
-    // 7 = B7 = palabra_hamming[0]
-    //
-    // ERROR_PARIDAD:
-    // 0 = paridad global correcta
-    // 1 = error de paridad global
-    //
-    // SEC = error simple corregido
-    // DED = doble error detectado
-    // ------------------------------------------------
+    // Se invierte el bit indicado por el síndrome solo si hay error de paridad global
+    assign flip[6] = ERROR_PARIDAD & ~sindrome[2] & ~sindrome[1] &  sindrome[0]; // pos 1
+    assign flip[5] = ERROR_PARIDAD & ~sindrome[2] &  sindrome[1] & ~sindrome[0]; // pos 2
+    assign flip[4] = ERROR_PARIDAD & ~sindrome[2] &  sindrome[1] &  sindrome[0]; // pos 3
+    assign flip[3] = ERROR_PARIDAD &  sindrome[2] & ~sindrome[1] & ~sindrome[0]; // pos 4
+    assign flip[2] = ERROR_PARIDAD &  sindrome[2] & ~sindrome[1] &  sindrome[0]; // pos 5
+    assign flip[1] = ERROR_PARIDAD &  sindrome[2] &  sindrome[1] & ~sindrome[0]; // pos 6
+    assign flip[0] = ERROR_PARIDAD &  sindrome[2] &  sindrome[1] &  sindrome[0]; // pos 7
 
+    assign palabra_corregida = palabra_hamming ^ flip;
 
-    always_comb begin
+    // Error simple: paridad global mala (síndrome 000 = error en P)
+    assign SEC = ERROR_PARIDAD;
 
-        // Por defecto, la palabra permanece sin cambios
-        palabra_corregida = palabra_hamming;
+    // Doble error: paridad global buena pero síndrome distinto de 000
+    assign DED = ~ERROR_PARIDAD & (sindrome[2] | sindrome[1] | sindrome[0]);
 
-        // Por defecto, no hay indicadores de error
-        SEC = 1'b0;
-        DED = 1'b0;
-
-
-        // ------------------------------------------------
-        // CASO 1:
-        // Paridad correcta + síndrome 000
-        // No existe error.
-        // ------------------------------------------------
-
-        if ((ERROR_PARIDAD == 1'b0) &&
-            (sindrome == 3'b000)) begin
-
-            palabra_corregida = palabra_hamming;
-            SEC = 1'b0;
-            DED = 1'b0;
-
-        end
-
-
-        // ------------------------------------------------
-        // CASO 2:
-        // Error de paridad + síndrome diferente de 000
-        // Error simple en la palabra Hamming.
-        // El síndrome indica la posición.
-        // ------------------------------------------------
-
-        else if ((ERROR_PARIDAD == 1'b1) &&
-                 (sindrome != 3'b000)) begin
-
-            SEC = 1'b1;
-            DED = 1'b0;
-
-            // Corrección según la posición indicada
-            case (sindrome)
-
-                3'b001: palabra_corregida[6] = ~palabra_hamming[6]; // Posición 1
-                3'b010: palabra_corregida[5] = ~palabra_hamming[5]; // Posición 2
-                3'b011: palabra_corregida[4] = ~palabra_hamming[4]; // Posición 3
-                3'b100: palabra_corregida[3] = ~palabra_hamming[3]; // Posición 4
-                3'b101: palabra_corregida[2] = ~palabra_hamming[2]; // Posición 5
-                3'b110: palabra_corregida[1] = ~palabra_hamming[1]; // Posición 6
-                3'b111: palabra_corregida[0] = ~palabra_hamming[0]; // Posición 7
-
-                default:
-                    palabra_corregida = palabra_hamming;
-
-            endcase
-
-        end
-
-
-        // ------------------------------------------------
-        // CASO 3:
-        // Error de paridad + síndrome 000
-        // Error en el bit de paridad global.
-        //
-        // La palabra Hamming de 7 bits permanece igual,
-        // ya que el bit afectado no pertenece a ella.
-        // ------------------------------------------------
-
-        else if ((ERROR_PARIDAD == 1'b1) &&
-                 (sindrome == 3'b000)) begin
-
-            palabra_corregida = palabra_hamming;
-            SEC = 1'b0;
-            DED = 1'b0;
-
-        end
-
-
-        // ------------------------------------------------
-        // CASO 4:
-        // Paridad correcta + síndrome diferente de 000
-        // Condición de doble error.
-        //
-        // No se realiza ninguna corrección porque el
-        // síndrome ya no representa de forma confiable
-        // una posición de un único bit erróneo.
-        // ------------------------------------------------
-
-        else if ((ERROR_PARIDAD == 1'b0) &&
-                 (sindrome != 3'b000)) begin
-
-            palabra_corregida = palabra_hamming;
-            SEC = 1'b0;
-            DED = 1'b1;
-
-        end
-
-    end
-
-
-    // ------------------------------------------------
-    // Extracción de los cuatro bits de información
-    //
-    // Palabra Hamming:
-    //
-    // Posición:  1   2   3   4   5   6   7
-    //            P1  P2  D1  P4  D2  D3  D4
-    //
-    // Datos:
-    // D1 = posición 3
-    // D2 = posición 5
-    // D3 = posición 6
-    // D4 = posición 7
-    // ------------------------------------------------
-
-    assign datos = {
-        palabra_corregida[0], // D4
-        palabra_corregida[1], // D3
-        palabra_corregida[2], // D2
-        palabra_corregida[4]  // D1
-    };
-
+    // D0=pos3, D1=pos5, D2=pos6, D3=pos7 (D0 es el LSB)
+    assign datos = { palabra_corregida[0],   // D3
+                     palabra_corregida[1],   // D2
+                     palabra_corregida[2],   // D1
+                     palabra_corregida[4] }; // D0
 endmodule
-
