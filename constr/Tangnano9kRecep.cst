@@ -1,0 +1,125 @@
+// =================================================
+// CONFIGURACION DE PINES - DISPLAY RECEPTOR
+// TANG NANO 9K
+// =================================================
+
+
+// ==========================================
+// DISPLAY DE 7 SEGMENTOS - CATODO
+// ==========================================
+
+IO_LOC "catodo_a" 38;
+IO_PORT "catodo_a" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "catodo_b" 37;
+IO_PORT "catodo_b" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "catodo_c" 36;
+IO_PORT "catodo_c" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "catodo_d" 39;
+IO_PORT "catodo_d" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "catodo_e" 25;
+IO_PORT "catodo_e" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "catodo_f" 26;
+IO_PORT "catodo_f" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "catodo_g" 27;
+IO_PORT "catodo_g" DRIVE=8 IO_TYPE=LVCMOS33;
+
+
+// ==========================================
+// DISPLAY DE 7 SEGMENTOS - ANODO
+// ==========================================
+
+IO_LOC "anodo_a" 71;
+IO_PORT "anodo_a" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "anodo_b" 72;
+IO_PORT "anodo_b" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "anodo_c" 73;
+IO_PORT "anodo_c" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "anodo_d" 74;
+IO_PORT "anodo_d" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "anodo_e" 75;
+IO_PORT "anodo_e" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "anodo_f" 76;
+IO_PORT "anodo_f" DRIVE=8 IO_TYPE=LVCMOS33;
+
+IO_LOC "anodo_g" 77;
+IO_PORT "anodo_g" DRIVE=8 IO_TYPE=LVCMOS33;
+
+//==========================================
+// ENTRADA (8 BITS)
+//==========================================
+
+IO_LOC  "palabra_entrada[0]" 54;
+IO_PORT "palabra_entrada[0]" IO_TYPE=LVCMOS33;
+
+IO_LOC  "palabra_entrada[1]" 55;
+IO_PORT "palabra_entrada[1]" IO_TYPE=LVCMOS33;
+
+IO_LOC  "palabra_entrada[2]" 56;
+IO_PORT "palabra_entrada[2]" IO_TYPE=LVCMOS33;
+
+IO_LOC  "palabra_entrada[3]" 57;
+IO_PORT "palabra_entrada[3]" IO_TYPE=LVCMOS33;
+
+IO_LOC  "palabra_entrada[4]" 68;
+IO_PORT "palabra_entrada[4]" IO_TYPE=LVCMOS33;
+
+IO_LOC  "palabra_entrada[5]" 69;
+IO_PORT "palabra_entrada[5]" IO_TYPE=LVCMOS33;
+
+IO_LOC  "palabra_entrada[6]" 48;
+IO_PORT "palabra_entrada[6]" IO_TYPE=LVCMOS33;
+
+//==========================================
+// PARIDAD GLOBAL
+//==========================================
+
+IO_LOC  "palabra_entrada[7]" 70;
+IO_PORT "palabra_entrada[7]" IO_TYPE=LVCMOS33;
+
+// ==========================================
+// SWITCH DE CAMBIO
+// ==========================================
+
+IO_LOC "SWITCH" 63;
+IO_PORT "SWITCH" IO_TYPE=LVCMOS33 PULL_MODE=DOWN;
+
+
+// ==========================================
+// LEDs INTEGRADOS DE LA FPGA
+// ==========================================
+
+
+IO_LOC "LED_DATOS[0]" 10;
+IO_PORT "LED_DATOS[0]" DRIVE=8 IO_TYPE=LVCMOS18;
+
+IO_LOC "LED_DATOS[1]" 11;
+IO_PORT "LED_DATOS[1]" DRIVE=8 IO_TYPE=LVCMOS18;
+
+IO_LOC "LED_DATOS[2]" 13;
+IO_PORT "LED_DATOS[2]" DRIVE=8 IO_TYPE=LVCMOS18;
+
+IO_LOC "LED_DATOS[3]" 14;
+IO_PORT "LED_DATOS[3]" DRIVE=8 IO_TYPE=LVCMOS18;
+
+
+// LED SEC
+
+IO_LOC "LED_SEC" 15;
+IO_PORT "LED_SEC" DRIVE=8 IO_TYPE=LVCMOS18;
+
+
+// LED DED
+
+IO_LOC "LED_DED" 16;
+IO_PORT "LED_DED" DRIVE=8 IO_TYPE=LVCMOS18;
