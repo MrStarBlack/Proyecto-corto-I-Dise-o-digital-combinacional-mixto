@@ -234,6 +234,12 @@ BITACORA JORGE CHAVARRIA MATA
 <img width="1309" height="1600" alt="WhatsApp Image 2026-09-22 at 1 58 36 AM" src="https://github.com/user-attachments/assets/8eaf5f80-9cc5-4be6-8ade-17e04e8a0699" />
 <img width="1060" height="1458" alt="WhatsApp Image 2026-09-22 at 1 58 55 AM" src="https://github.com/user-attachments/assets/3158d8d3-7af5-4ee6-82ab-307a2064edd5" />
 <img width="905" height="1350" alt="WhatsApp Image 2026-09-22 at 1 59 16 AM" src="https://github.com/user-attachments/assets/5253244f-3a21-445b-a35f-47c44271d309" />
+<img width="899" height="1599" alt="WhatsApp Image 2026-09-28 at 6 06 00 PM" src="https://github.com/user-attachments/assets/4eb1e99e-bd9a-46f0-8480-29944cb3eadb" />
+<img width="899" height="1599" alt="WhatsApp Image 2026-09-28 at 6 04 41 PM" src="https://github.com/user-attachments/assets/ed53ff8a-bde1-4a6c-bc3e-0e6c7263d8ad" />
+<img width="899" height="1599" alt="WhatsApp Image 2026-09-28 at 6 04 38 PM" src="https://github.com/user-attachments/assets/2bb8be2f-d7a3-494c-a868-44990dca53fd" />
+<img width="899" height="1599" alt="WhatsApp Image 2026-09-28 at 6 04 25 PM" src="https://github.com/user-attachments/assets/4d1f0728-95c3-4889-8080-d39275381d69" />
+
+
 
 
 DEREK ROJAS CAMACHO
