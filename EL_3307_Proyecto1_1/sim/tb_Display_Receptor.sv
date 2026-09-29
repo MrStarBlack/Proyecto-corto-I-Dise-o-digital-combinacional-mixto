@@ -2,9 +2,6 @@
 
 module tb_Display_Receptor;
 
-    // =================================================
-    // SEÑALES DEL TESTBENCH
-    // =================================================
 
     logic [3:0] datos;
     logic       SEC;
@@ -16,27 +13,54 @@ module tb_Display_Receptor;
     logic       LED_SEC;
     logic       LED_DED;
 
-    logic [6:0] display_catodo;
-    logic [6:0] display_anodo;
+    // Display de catodo
+    logic catodo_a;
+    logic catodo_b;
+    logic catodo_c;
+    logic catodo_d;
+    logic catodo_e;
+    logic catodo_f;
+    logic catodo_g;
 
+    // Display de anodo
+    logic anodo_a;
+    logic anodo_b;
+    logic anodo_c;
+    logic anodo_d;
+    logic anodo_e;
+    logic anodo_f;
+    logic anodo_g;
 
     // =================================================
     // INSTANCIA DEL MODULO A PROBAR
     // =================================================
 
     Display_Receptor DUT (
-        .datos           (datos),
-        .SEC             (SEC),
-        .DED             (DED),
-        .sindrome        (sindrome),
-        .SWITCH          (SWITCH),
+        .datos       (datos),
+        .SEC         (SEC),
+        .DED         (DED),
+        .sindrome    (sindrome),
+        .SWITCH      (SWITCH),
 
-        .LED_DATOS       (LED_DATOS),
-        .LED_SEC         (LED_SEC),
-        .LED_DED         (LED_DED),
+        .LED_DATOS   (LED_DATOS),
+        .LED_SEC     (LED_SEC),
+        .LED_DED     (LED_DED),
 
-        .display_catodo  (display_catodo),
-        .display_anodo   (display_anodo)
+        .catodo_a    (catodo_a),
+        .catodo_b    (catodo_b),
+        .catodo_c    (catodo_c),
+        .catodo_d    (catodo_d),
+        .catodo_e    (catodo_e),
+        .catodo_f    (catodo_f),
+        .catodo_g    (catodo_g),
+
+        .anodo_a     (anodo_a),
+        .anodo_b     (anodo_b),
+        .anodo_c     (anodo_c),
+        .anodo_d     (anodo_d),
+        .anodo_e     (anodo_e),
+        .anodo_f     (anodo_f),
+        .anodo_g     (anodo_g)
     );
 
 
@@ -45,6 +69,10 @@ module tb_Display_Receptor;
     // =================================================
 
     initial begin
+
+        $dumpfile("Display_Receptor.vcd");
+        $dumpvars(0, tb_Display_Receptor);
+
 
         $display("==============================================");
         $display(" TESTBENCH - DISPLAY_RECEPTOR");
@@ -58,8 +86,6 @@ module tb_Display_Receptor;
         //
         // Datos = 1011
         // Hexadecimal = B
-        //
-        // Los displays deben mostrar B.
         // =================================================
 
         datos    = 4'b1011;
@@ -77,8 +103,15 @@ module tb_Display_Receptor;
         $display("LED_DATOS         : %b", LED_DATOS);
         $display("LED_SEC           : %b", LED_SEC);
         $display("LED_DED           : %b", LED_DED);
-        $display("Display Catodo    : %b", display_catodo);
-        $display("Display Anodo     : %b", display_anodo);
+
+        $display("Catodo            : %b%b%b%b%b%b%b",
+                 catodo_a, catodo_b, catodo_c,
+                 catodo_d, catodo_e, catodo_f, catodo_g);
+
+        $display("Anodo             : %b%b%b%b%b%b%b",
+                 anodo_a, anodo_b, anodo_c,
+                 anodo_d, anodo_e, anodo_f, anodo_g);
+
         $display("");
 
 
@@ -88,8 +121,6 @@ module tb_Display_Receptor;
         //
         // Sindrome = 101
         // 101 = 5
-        //
-        // Los displays deben mostrar 5.
         // =================================================
 
         datos    = 4'b1011;
@@ -107,8 +138,15 @@ module tb_Display_Receptor;
         $display("LED_DATOS         : %b", LED_DATOS);
         $display("LED_SEC           : %b", LED_SEC);
         $display("LED_DED           : %b", LED_DED);
-        $display("Display Catodo    : %b", display_catodo);
-        $display("Display Anodo     : %b", display_anodo);
+
+        $display("Catodo            : %b%b%b%b%b%b%b",
+                 catodo_a, catodo_b, catodo_c,
+                 catodo_d, catodo_e, catodo_f, catodo_g);
+
+        $display("Anodo             : %b%b%b%b%b%b%b",
+                 anodo_a, anodo_b, anodo_c,
+                 anodo_d, anodo_e, anodo_f, anodo_g);
+
         $display("");
 
 
@@ -117,8 +155,7 @@ module tb_Display_Receptor;
         // SIN ERROR
         //
         // Sindrome = 000
-        //
-        // Con SWITCH ON se debe mostrar 0.
+        // SWITCH ON -> muestra 0
         // =================================================
 
         datos    = 4'b1011;
@@ -136,8 +173,15 @@ module tb_Display_Receptor;
         $display("LED_DATOS         : %b", LED_DATOS);
         $display("LED_SEC           : %b", LED_SEC);
         $display("LED_DED           : %b", LED_DED);
-        $display("Display Catodo    : %b", display_catodo);
-        $display("Display Anodo     : %b", display_anodo);
+
+        $display("Catodo            : %b%b%b%b%b%b%b",
+                 catodo_a, catodo_b, catodo_c,
+                 catodo_d, catodo_e, catodo_f, catodo_g);
+
+        $display("Anodo             : %b%b%b%b%b%b%b",
+                 anodo_a, anodo_b, anodo_c,
+                 anodo_d, anodo_e, anodo_f, anodo_g);
+
         $display("");
 
 
@@ -160,8 +204,15 @@ module tb_Display_Receptor;
         $display("Sindrome          : %b", sindrome);
         $display("LED_SEC           : %b", LED_SEC);
         $display("LED_DED           : %b", LED_DED);
-        $display("Display Catodo    : %b", display_catodo);
-        $display("Display Anodo     : %b", display_anodo);
+
+        $display("Catodo            : %b%b%b%b%b%b%b",
+                 catodo_a, catodo_b, catodo_c,
+                 catodo_d, catodo_e, catodo_f, catodo_g);
+
+        $display("Anodo             : %b%b%b%b%b%b%b",
+                 anodo_a, anodo_b, anodo_c,
+                 anodo_d, anodo_e, anodo_f, anodo_g);
+
         $display("");
 
 
@@ -184,8 +235,15 @@ module tb_Display_Receptor;
         $display("Sindrome          : %b", sindrome);
         $display("LED_SEC           : %b", LED_SEC);
         $display("LED_DED           : %b", LED_DED);
-        $display("Display Catodo    : %b", display_catodo);
-        $display("Display Anodo     : %b", display_anodo);
+
+        $display("Catodo            : %b%b%b%b%b%b%b",
+                 catodo_a, catodo_b, catodo_c,
+                 catodo_d, catodo_e, catodo_f, catodo_g);
+
+        $display("Anodo             : %b%b%b%b%b%b%b",
+                 anodo_a, anodo_b, anodo_c,
+                 anodo_d, anodo_e, anodo_f, anodo_g);
+
         $display("");
 
 
@@ -208,8 +266,15 @@ module tb_Display_Receptor;
         $display("Sindrome          : %b", sindrome);
         $display("LED_SEC           : %b", LED_SEC);
         $display("LED_DED           : %b", LED_DED);
-        $display("Display Catodo    : %b", display_catodo);
-        $display("Display Anodo     : %b", display_anodo);
+
+        $display("Catodo            : %b%b%b%b%b%b%b",
+                 catodo_a, catodo_b, catodo_c,
+                 catodo_d, catodo_e, catodo_f, catodo_g);
+
+        $display("Anodo             : %b%b%b%b%b%b%b",
+                 anodo_a, anodo_b, anodo_c,
+                 anodo_d, anodo_e, anodo_f, anodo_g);
+
         $display("");
 
 
@@ -218,9 +283,7 @@ module tb_Display_Receptor;
         // DOBLE ERROR
         //
         // DED = 1
-        //
-        // Los displays deben mostrar E.
-        // LED_DED debe encenderse.
+        // Debe mostrar E = 1110
         // =================================================
 
         datos    = 4'b1011;
@@ -238,8 +301,15 @@ module tb_Display_Receptor;
         $display("LED_DATOS         : %b", LED_DATOS);
         $display("LED_SEC           : %b", LED_SEC);
         $display("LED_DED           : %b", LED_DED);
-        $display("Display Catodo    : %b", display_catodo);
-        $display("Display Anodo     : %b", display_anodo);
+
+        $display("Catodo            : %b%b%b%b%b%b%b",
+                 catodo_a, catodo_b, catodo_c,
+                 catodo_d, catodo_e, catodo_f, catodo_g);
+
+        $display("Anodo             : %b%b%b%b%b%b%b",
+                 anodo_a, anodo_b, anodo_c,
+                 anodo_d, anodo_e, anodo_f, anodo_g);
+
         $display("");
 
 
@@ -249,7 +319,6 @@ module tb_Display_Receptor;
         //
         // Datos = 0101
         // Hexadecimal = 5
-        //
         // SWITCH OFF
         // =================================================
 
@@ -265,8 +334,15 @@ module tb_Display_Receptor;
         $display("Datos             : %b", datos);
         $display("SWITCH            : %b", SWITCH);
         $display("LED_DATOS         : %b", LED_DATOS);
-        $display("Display Catodo    : %b", display_catodo);
-        $display("Display Anodo     : %b", display_anodo);
+
+        $display("Catodo            : %b%b%b%b%b%b%b",
+                 catodo_a, catodo_b, catodo_c,
+                 catodo_d, catodo_e, catodo_f, catodo_g);
+
+        $display("Anodo             : %b%b%b%b%b%b%b",
+                 anodo_a, anodo_b, anodo_c,
+                 anodo_d, anodo_e, anodo_f, anodo_g);
+
         $display("");
 
 
@@ -290,8 +366,15 @@ module tb_Display_Receptor;
         $display("Datos             : %b", datos);
         $display("SWITCH            : %b", SWITCH);
         $display("LED_DATOS         : %b", LED_DATOS);
-        $display("Display Catodo    : %b", display_catodo);
-        $display("Display Anodo     : %b", display_anodo);
+
+        $display("Catodo            : %b%b%b%b%b%b%b",
+                 catodo_a, catodo_b, catodo_c,
+                 catodo_d, catodo_e, catodo_f, catodo_g);
+
+        $display("Anodo             : %b%b%b%b%b%b%b",
+                 anodo_a, anodo_b, anodo_c,
+                 anodo_d, anodo_e, anodo_f, anodo_g);
+
         $display("");
 
 
