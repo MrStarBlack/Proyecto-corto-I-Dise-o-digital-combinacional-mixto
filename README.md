@@ -73,77 +73,129 @@ Caso de inversor con capacitor: El inversor queda atrapado en su región lineal 
 
 ### 3.2 Módulo 1
 #### 1. Encabezado del módulo
-##### Encabezado del modulo Lectura_Palabra:
+##### Encabezado del modulo Decodificador7Segmentos:
 
-module Lectura_Palabra (
-    input  [3:0] datos_i, // 4 bits de entrada: [3]=D3, [2]=D2, [1]=D1, [0]=D0
-    output [6:0] seg_o    // 7 segmentos: [0]=A, [1]=B, [2]=C, [3]=D, [4]=E, [5]=F, [6]=G
+module Decodificador7Segmentos (
+    input  [3:0] dato,        // {D3,D2,D1,D0} a mostrar
+    output       seg_a,       // Un pin de FPGA por segmento
+    output       seg_b,
+    output       seg_c,
+    output       seg_d,
+    output       seg_e,
+    output       seg_f,
+    output       seg_g,
+    output       transistor_en // Base del NPN (pin 28): 1 = display encendido
+);
+
+##### Encabezado del modulo ModuloHamming:
+module ModuloHamming (
+    input D0, D1, D2, D3,   // Datos del usuario (pines 34, 40, 35, 41)
+    input S1, S2, S3,       // Sindromes desde los 74HC86 (pines 42, 51, 53)
+    output [6:0] palabra_codificada
+);
+
+##### Encabezado del modulo ModuloParidadDED
+
+module ModuloParidadDED (
+    input  [6:0] palabra_codificada,  // D0,D1,D2,D3,S1,S2,S3
+    output [7:0] palabra_final        // {paridad_global, 7 bits}
+);
+
+##### Encabezado del módulo ModuloInyeccionErrores:
+
+module ModuloInyeccionErrores (
+    input  [7:0] palabra_final,       // Desde ModuloParidadDED
+    input  [2:0] error1,              // Pines 29, 30, 33
+    input  [2:0] error2,              // Pines 49, 31, 32
+    output [7:0] palabra_transmitida  // A los LEDs
+);
+
+##### Encabezado del modulo topTransmisor
+
+module topTransmisor (
+    input D0, D1, D2, D3,          // Switches de datos
+    input S1, S2, S3,              // Sindromes de los 74HC86
+    input [2:0] error1,            // Switches de error 1
+    input [2:0] error2,            // Switches de error 2
+    output seg_a, seg_b, seg_c, seg_d, seg_e, seg_f, seg_g,
+    output [7:0] palabra_transmitida  // A los 8 LEDs
+);
+
+##### Encabezado del módulo Verificador_Paridad:
+
+module Verificador_Paridad (
+    input  logic [7:0] palabra_recibida,
+    output logic       ERROR_PARIDAD
+);
+
+##### Encabezado del módulo Determinacion_Sindrome:
+
+module Determinacion_Sindrome (
+    input  logic [6:0] palabra_hamming, // [6]=B1 ... [0]=B7
+    output logic       S1,
+    output logic       S2,
+    output logic       S4,
+    output logic [2:0] sindrome
 );
 
 
-##### Encabezado del módulo Inyeccion_Error_Hamming:
-module Inyeccion_Error_Hamming (
+##### Encabezado del módulo Correccion_Error:
+module Correccion_error (
+    input  logic [6:0] palabra_hamming,
+    input  logic       ERROR_PARIDAD,
+    input  logic [2:0] sindrome,
 
-    input wire clk_i,   // reloj del Tang Nano 9K (ej. 27 MHz)
-
-    input wire [3:0] datos_i,
-
-    input wire I1_i,
-    input wire I2_i,
-    input wire I3_i,
-
-    input wire [2:0] err1_pos_i,
-    input wire [2:0] err2_pos_i,
-
-    input wire error_P_i,
-
-    output wire D0_o,
-    output wire D1_o,
-    output wire D2_o,
-    output wire D3_o,
-
-    output wire I1_o,
-    output wire I2_o,
-    output wire I3_o,
-
-    output wire P_o
+    output logic [6:0] palabra_corregida,
+    output logic [3:0] datos,
+    output logic       SEC,
+    output logic       DED
 );
 
-##### Encabezado del módulo parity_decoder:
-module parity_decoder (
-    input wire [7:0] palabra_recibida,
+##### Encabezado del módulo Display_Receptor:
+module Display_Receptor (
+    input  logic [3:0] datos,
+    input  logic       SEC,
+    input  logic       DED,
+    input  logic [2:0] sindrome,
+    input  logic       SWITCH,
 
-    output wire paridad_ok,
-    output wire error_paridad
+    output logic [3:0] LED_DATOS,
+    output logic       LED_SEC,
+    output logic       LED_DED,
+
+    output logic catodo_a, catodo_b, catodo_c, catodo_d,
+    output logic catodo_e, catodo_f, catodo_g,
+
+    output logic anodo_a, anodo_b, anodo_c, anodo_d,
+    output logic anodo_e, anodo_f, anodo_g
 );
 
+##### Encabezado del modulo moduloTopRecep:
+module moduloTopRecep (
+    // Entradas individuales (0 = GND, 1 = 3.3 V)
+    input  logic P_in,    // paridad global
+    input  logic D0_in,   // dato 0 (posición Hamming 3)
+    input  logic D1_in,   // dato 1 (posición Hamming 5)
+    input  logic D2_in,   // dato 2 (posición Hamming 6)
+    input  logic D3_in,   // dato 3 (posición Hamming 7)
+    input  logic S1_in,   // paridad Hamming, posición 1
+    input  logic S2_in,   // paridad Hamming, posición 2
+    input  logic S3_in,   // paridad Hamming, posición 4
 
-##### Encabezado del módulo syndrome_decoder:
-module syndrome_decoder (
-    input wire [6:0] hamming_recibido,
+    // 0 = muestra datos, 1 = muestra síndrome
+    input  logic SWITCH,
 
-    output wire [2:0] syndrome
+    // LEDs de la FPGA (activos en bajo)
+    output logic [3:0] LED_DATOS,
+    output logic       LED_SEC,
+    output logic       LED_DED,
+
+    output logic catodo_a, catodo_b, catodo_c, catodo_d,
+    output logic catodo_e, catodo_f, catodo_g,
+
+    output logic anodo_a, anodo_b, anodo_c, anodo_d,
+    output logic anodo_e, anodo_f, anodo_g
 );
-
-
-##### Encabezado del módulo error_correction:
-module syndrome_decoder (
-    input wire [6:0] hamming_recibido,
-
-    output wire [2:0] syndrome
-);
-##### Encabezado del módulo display_decoder:
-module display_decoder (
-    input wire [6:0] palabra_corregida,
-    input wire [2:0] syndrome,
-    input wire ded,
-    input wire switch_display,
-
-    output wire [6:0] leds,
-    output reg [6:0] segmentos
-);
-
-
 #### 2. Parámetros
 
 El módulo no utiliza parámetros configurables, es decir, las dimensiones de las señales y la lógica del procesamiento están definidas en el código SystemVerilog de acuerdo con el sistema Hamming implementado.
@@ -198,7 +250,7 @@ Simulación de la Corrección de error
 
 Simulación del display del Receptor
 <img width="1481" height="314" alt="Captura de pantalla 2026-09-28 172306" src="https://github.com/user-attachments/assets/37e8ad4a-85f0-4d9a-a42c-562accb0a2e3" />
-<img width="621" height="696" alt="Captura de pantalla 2026-09-28 172121" src="https://github.com/user-attachments/assets/513241f1-ea3f-49ae-a8a5-f8acc8c054db" />
+<img width="1105" height="396" alt="Captura de pantalla 2026-09-28 222113" src="https://github.com/user-attachments/assets/964e827b-eb0a-4e2b-ba67-6a176dbc4efe" />
 
 
 
