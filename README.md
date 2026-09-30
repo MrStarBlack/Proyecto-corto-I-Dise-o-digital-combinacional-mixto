@@ -256,18 +256,50 @@ Simulación del display del Receptor
 
 
 ## 4. Consumo de recursos
-Number of wires:                 63
-   Number of wire bits:            148
-   Number of public wires:          63
-   Number of public wire bits:     148
+=== moduloTopReceptor ===
+
+   Number of wires:                211
+   Number of wire bits:            280
+   Number of public wires:         211
+   Number of public wire bits:     280
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:                 36
+   Number of cells:                208
+     GND                             1
+     IBUF                            9
+     LUT1                           24
+     LUT2                            3
+     LUT3                            2
+     LUT4                           75
+     MUX2_LUT5                      42
+     MUX2_LUT6                      19
+     MUX2_LUT7                       9
+     MUX2_LUT8                       4
+     OBUF                           20
+=== modulotopTransmisor ===
+
+   Number of wires:                114
+   Number of wire bits:            227
+   Number of public wires:         114
+   Number of public wire bits:     227
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                123
+     ALU                             6
      GND                             1
      IBUF                           13
-     LUT4                            7
+     LUT1                           27
+     LUT2                            3
+     LUT3                            1
+     LUT4                           28
+     MUX2_LUT5                      19
+     MUX2_LUT6                       9
      OBUF                           15
+     VCC                             1
+
+     
 ## 5. Problemas encontrados durante el proyecto
 Literalmente todo. Desde la implementación de las herramientas hasta la realización del código nos hemos encontrado con demasiadas dificultades. La más importante es con la programación en Visual Studio ya que tuvimos demasiados problemas para implementar todas las herramientas necesarias, debido a que se necesitó ayuda extra del tutor para poder implementarlas. El armado del circuito fue otro problema bastante grande puesto que al tener muchos componentes si no se mantenía el orden era muy fácil perderse además de que los pines de la fgpa no son ordenados. Además esta misma presenta un fallo en el pin 35 que hace que no pueda recibir datos y nos dimos cuenta con ya pruebas avanzadas de este percanse.
 ## Apendices:
